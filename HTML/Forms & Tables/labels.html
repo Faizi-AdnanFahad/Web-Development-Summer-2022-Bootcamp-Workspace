@@ -11,15 +11,21 @@
             <form action="/notFoundLink">
                 <p>
                     <label for="name">Enter your name: </label>
-                    <input type="text" id="name"> <!-- The id-for helps us to group them together so when its clicked on the label, the input could be taken instead of only explcitly clicking on the input box. -->
+                    <input type="text" id="name" name="name"> <!-- The id-for helps us to group them together so when its clicked on the label, the input could be taken instead of only explcitly clicking on the input box. -->
                 </p>
     
                 <!-- OR -->
                 <p>
                     <label> Please Enter your password: 
-                        <input type="password">
+                        <input type="password" name="password">
                     </label>
                 </p>
+
+                <p>
+                    <button>Click</button>
+                </p>
+
+                <!-- file:///C:/notFoundLink?name=Adnan&password=1234 -> AFTER PUTTING THE ATTRIBUTE NAME, THIS WILL HELP US TO GET ITS VALUE IN THE URL AS WRITTEN.-->
             </form>
     </body>
 </html>

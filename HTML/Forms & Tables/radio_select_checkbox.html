@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>more inputs</title>
+</head>
+
+<body>
+    <main>
+        <form action="/noLink">
+
+            <!-- Drop Down Selection input -->
+            <label for="clothes">Please select your size: </label>
+            <select name="size" id="clothes">
+                <option value="xs">XS</option>
+                <option value="s">S</option>
+                <option value="m">M</option>
+                <option value="l">L</option>
+                <option value="xl">XL</option>
+            </select>
+            <hr>
+
+            <!-- One Choice -->
+            <section>
+                <label for="sum">***2 + 2 = ?***</label> <br>
+
+                <input type="radio" name="sum_result" id="1" value="1"> <!-- value will store the result in sum_result-->
+                <label for="1">1</label>
+                <br>
+                <input type="radio" name="sum_result" id="2" value="2">
+                <label for="2">2</label>
+                <br>
+                <input type="radio" name="sum_result" id="4" value="4">
+                <label for="4">4</label>
+                <br>
+                <input type="radio" name="sum_result" id="3" value="3">
+                <label for="3">3</label>
+            </section>
+            <hr>
+            
+            <!-- Checkbox -->
+            <label for="agree">Click to agree to the terms and conditions: </label>
+            <input type="checkbox" name="agree" id="agree">
+
+            <!-- If checkbox is checked: file:///C:/noLink?size=xs&sum_result=3&agree=on 
+                 If checkbox is not checked: file:///C:/noLink?size=xs&sum_result=1 -->
+
+            <p><button>Submit</button></p>
+        </form>
+    </main>
+</body>
+
+</html>
