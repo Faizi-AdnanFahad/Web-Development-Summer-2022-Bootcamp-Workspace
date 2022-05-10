@@ -54,3 +54,13 @@ p:hover {
 section:nth-of-type(2n) {
     background-color: rgb(145, 145, 196);
 }
+
+/* Make the first letter of each seciton larger*/
+section::first-letter {
+    font-size: x-large;
+}
+
+/*When the input checkbox is checked apply that property.*/
+input[type="checkbox"]:checked {
+    box-shadow: 0 0 0 3px hotpink;
+  }
