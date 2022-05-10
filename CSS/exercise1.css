@@ -1,17 +1,12 @@
-h1 {
-    color: green;
+li {
+    color: blue;
 }
 
-h2 {
-    color: magenta;
+.done {
+    color: grey;
 }
 
-p {
+#clear {
+    background-color: red;
     color: white;
-    background-color: black;
-}
-
-button {
-    color: red;
-    background-color: pink;
 }

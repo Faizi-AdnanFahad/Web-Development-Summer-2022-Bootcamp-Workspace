@@ -1,0 +1,56 @@
+/* Universal Selectors */
+/* * {
+    color: darkblue;
+    background-color: aqua;
+} */
+
+/* Comma Seperated Selectors */
+h1, h2 {
+    color: brown;
+}
+
+/* Element Selectors */
+h3 {
+    color: green;
+}
+
+/* Styling a specific element in a text by providing its `id` */
+#vote2 {
+    background-color: blueviolet;
+    color: coral;
+}
+
+/* decsendant of a class */
+.post a { /* Change all the anchor tags that are decsendant of the class .post*/
+    color: crimson;
+    background-color: black;
+}
+
+h2 + button { /* button that comes after h2 and are adjacent*/
+    background-color: pink;
+}
+
+footer > a { /* an anchor tag that is directly a descendant of footer RATHER THAN ANY DESCENDANT */
+    color: darkslategrey;
+}
+
+/* if the input is of type password then change the background color*/
+input[type="password"] {
+    background-color: darkgoldenrod;
+}
+
+/* When mouse is hovered on all paragraphs, apply the properties.*/
+p:hover {
+    background-color: black;
+    color: aliceblue;
+}
+
+/* all decendant buttons of a the class post, if clicked, for the duration that it is being pressed, apply the property.*/
+.post button:active { /*Click on first and last +Vote button to see the effects */
+    background-color: aquamarine;
+}
+
+/* Apply the property to every 2nd and its multipliers of section */
+section:nth-of-type(2n) {
+    background-color: rgb(145, 145, 196);
+}
