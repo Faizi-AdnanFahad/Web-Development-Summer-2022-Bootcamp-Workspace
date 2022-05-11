@@ -1,0 +1,6 @@
+button {
+    background-color: aqua;
+    padding: 100px; all four sides with the same size padding
+    /* padding: 20px 100px; 20px for top-bottom and 100px for left-right */
+    /* padding: 10px 20px 30px 40px; Top - right - bottom - left */
+}

@@ -1,0 +1,13 @@
+p {
+    background-color: blueviolet;
+    border: 3px solid red;
+}
+
+#p1 {
+    margin: 20px;
+}
+
+#p2 {
+    margin: 50px 100px;
+}
+
