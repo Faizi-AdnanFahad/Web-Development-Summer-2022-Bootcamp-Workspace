@@ -1,0 +1,8 @@
+p {
+    background-color: pink;
+    width: 200px; /* Reduces the box width from going over all the way to end of the page to 100px */
+}
+
+body {
+    background-color: black;
+}

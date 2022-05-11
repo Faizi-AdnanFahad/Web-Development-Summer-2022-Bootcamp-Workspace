@@ -1,0 +1,33 @@
+body {
+    background-color: grey;
+}
+
+h1 {
+    text-align: center;
+    border-width: 2px;
+    border-style: solid;
+    border-color: blue;
+}
+
+h2 {
+    text-align: center;
+    border: 3px dashed red;
+}
+
+h3 {
+    text-align: center;
+    border: 2px solid green;
+    border-radius: 50%;
+}
+
+#messi10 {
+    /* Centers the picture*/
+    display: block;
+    margin: auto;
+    
+    align-content: center;
+    height: 500px;
+    width: auto;
+    border: 5px solid red;
+    border-radius: 50%;
+}
