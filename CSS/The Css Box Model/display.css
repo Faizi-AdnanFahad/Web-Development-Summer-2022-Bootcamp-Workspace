@@ -1,0 +1,24 @@
+h1 {
+    background-color: blue;
+    color: white;
+    border: 2px solid red;
+    display: inline-border;
+    padding: 20px;
+    margin: 20px;
+}
+
+h2 {
+    background-color: pink;
+    border: 2px solid black;
+    padding: 200px;
+    margin: 40px;
+}
+
+/*
+    Notes on inline, block and inline-block elements:
+        - All properties(width, margin, padding...) could be applied to block elements. 
+        - Some properties(width, margin, padding...) could NOT be applied to inline elements. In order to make all properties applied to such elements, 
+          the element should be set to block type elements using --> display: block;
+        - If we want an element to be inline but still have all properties(width, margin, padding...) be applied to it without changing it to block, we
+          should change its display to inline-block type.
+*/
