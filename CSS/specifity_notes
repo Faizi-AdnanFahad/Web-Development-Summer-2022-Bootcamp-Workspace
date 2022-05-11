@@ -1,0 +1,9 @@
+
+<!--
+    * When styles conflicts in a way that one element has been applied with multiple styles, the following order is decided which style should be dominant.
+      ID > CLASS > ELEMENT === is the order in which specificity appiles. Id is more specific than class; and class is more specific than element.
+     
+    * Cole Steel explaining specifity: https://www.udemy.com/course/the-web-developer-bootcamp/learn/lecture/21917656#questions 
+
+    * Tool to calculate specifity: https://specificity.keegan.st
+-->
