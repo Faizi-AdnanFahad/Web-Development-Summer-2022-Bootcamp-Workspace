@@ -1,0 +1,32 @@
+section:first-of-type button:nth-of-type(1) {
+    background-color: aqua;
+    margin: 20px 0;
+    display: block;
+}
+
+section:first-of-type button:nth-of-type(2) {
+    margin: 20px 0;
+    background-color: blueviolet;
+    display: block;
+}
+
+section:nth-of-type(2) button:nth-of-type(1) {
+    background-color: chocolate;
+    display: block;
+    margin: 20px 0;
+}
+
+section:nth-of-type(2) button:nth-of-type(2) {
+    background-color: darkred;
+    display: block;
+    margin: 20px 0;
+    transition: all 2s;
+}
+
+section:nth-of-type(2) button:nth-of-type(2):hover {
+    transform: rotate(45deg) scale(2) translate(200px);
+}
+
+section:first-of-type {
+    transform: rotate(180deg);
+}

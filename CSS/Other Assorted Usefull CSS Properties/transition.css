@@ -18,11 +18,11 @@ section #circle:hover {
 }
 
 #div1 {
-    transition: margin-left 2s ease-in;
+    transition: 2s ease-in;
 }
 
 #div2 {
-    transition: margin-left 2s ease-out;
+    transition: 2s ease-out;
 }
 
 #div3 {
@@ -36,5 +36,6 @@ section #circle:hover {
 
 section:hover div {
     margin-left: 200px;
+    background-color: darkorange;
 }
 
