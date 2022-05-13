@@ -16,41 +16,64 @@
     </header>
 
     <main>
-        <section class="personal_info">
-            <label for="fName">Enter Your First Name:</label>
-            <input type="text" name="fName" id="fName" required>
+        <form action="/register-demo.freecodecamp.org">
+            <section class="personal_info">
+                <label for="fName">Enter Your First Name:</label>
+                <input type="text" name="fName" id="fName" required>
+    
+                <label for="lName">Enter Your Last Name:</label>
+                <input type="text" name="lName" id="lName" required>
+    
+                <label for="email">Enter Your Email:</label>
+                <input type="email" name="email" id="email" required>
+    
+                <label for="password">Create a New Password:</label>
+                <input type="password" name="password" id="password" required>
+            </section>
+            <hr>
+            <section class="account_info">
+                <fieldset>
+                    <input type="radio" name="acc_type" id="per_acc" required>
+                    <label for="per_acc">Personal Account</label>
+                </fieldset>
+                <fieldset>
+                    <input type="radio" name="acc_type" id="buss_acc" required>
+                    <label for="buss_acc">Bussiness Account</label>
+                </fieldset>
+                <fieldset>
+                    <input type="checkbox" id="terms" required>
+                    <label for="terms">I accept the <a href="https://www.freecodecamp.org/news/terms-of-service/">term and
+                            conditions</a></label>
+                </fieldset>
+            </section>
+            <hr>
+            <section class="pic_age">
+                <fieldset>
+                    <label for="profile_pic">Upload a profile picture:</label>
+                    <input type="file" accept="image/png, image/jpeg" id="profile_pic">
+                </fieldset>
+                <fieldset>
+                    <label for="age">Input your age (years):</label>
+                    <input type="number" id="age">
+                </fieldset>
+                <fieldset>
+                    <label for="opinion">How did you hear about us?</label>
+                    <select name="opinion" id="opinion">
+                        <option value="">(select one)</option>
+                        <option value="news">FreeCodeCamp News</option>
+                        <option value="youtube">FreeCodeCamp Youtube Channel</option>
+                        <option value="forum">FreeCodeCamp Forum</option>
+                        <option value="other">other</option>
+                    </select>
+                </fieldset>
+                <fieldset>
+                    <label for="age">Provide a bio:</label>
+                    <textarea placeholder="I like coding on the beach..." name="bio" cols="70" rows="10"></textarea>
+                </fieldset>
+            </section>
 
-            <label for="lName">Enter Your Last Name:</label>
-            <input type="text" name="lName" id="lName" required>
-
-            <label for="email">Enter Your Email:</label>
-            <input type="email" name="email" id="email" required>
-
-            <label for="password">Create a New Password:</label>
-            <input type="password" name="password" id="password" required>
-        </section>
-        <hr>
-        <section class="account_info">
-            <fieldset>
-                <input type="radio" name="acc_type" id="per_acc" required>
-                <label for="per_acc">Personal Account</label>
-            </fieldset>
-            <fieldset>
-                <input type="radio" name="acc_type" id="buss_acc" required>
-                <label for="buss_acc">Bussiness Account</label>
-            </fieldset>
-            <fieldset>
-                <input type="checkbox" id="terms" required>
-                <label for="terms">I accept the <a href="https://www.freecodecamp.org/news/terms-of-service/">term and conditions</a></label>
-            </fieldset>
-        </section>
-        <hr>
-        <section class="pic_age">
-            <label for="profile_pic">Upload a profile picture:</label>
-            <fieldset>
-                <input type="file" accept="image/png, image/jpeg">
-            </fieldset>
-        </section>
+            <button>Submit</button>
+        </form>
     </main>
 </body>
 
