@@ -1,0 +1,76 @@
+body {
+    font-family: 'Open Sans', sans-serif;
+}
+h1 {
+    text-align: center;
+}
+
+/* Main Axis: The axis which the content flows */
+/* Cross Axis: The axis which the content will move once the section is overloaded */
+
+/*
+Flex-Wrap
+The flex-wrap CSS property sets whether flex items are 
+forced onto one line or can wrap onto multiple lines. 
+If wrapping is allowed, it sets the direction that lines 
+are stacked.
+*/
+
+#container {
+    background-color: #003049;
+    width: 90%;
+    height: 800px;
+    margin: 0 auto;
+    border: 5px solid #003049;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    flex-basis: 10%;
+    /* align-items: center; */
+    /* align-content: center; The space between rows */
+    /* align-items: center; */
+    /* justify-content: space-evenly; */
+    /* align-items: center; */
+    /* justify-content: center; */ /* is for the main axis */
+    /* align-i tems: center; is for the cross axis - The default value is stretch */
+    /* justify-content: center; */
+    /* justify-content: flex-end; */
+    /* flex-direction: row; Main Axis = left to right */
+    /* flex-wrap: wrap; */ /*  Cross Axis = top to bottom */
+    /* flex-wrap: wrap-reverse; Cross Axis = bottom to top  */
+    /* justify-content: flex-end; */
+    /* flex-direction: row-reverse; */
+    /* justify-content: space-evenly; */
+    /* justify-content: space-between; */
+    /* justify-content: space-around; */
+}
+.box1 {
+    flex-grow: 1;
+}
+.box6 {
+    flex-grow: 4;
+}
+div {
+    width: 22%;
+    height: 22%;
+    font-family: lato;
+    color: white;
+    font-size: xx-large;
+    text-align: center;
+    font-weight: bold;
+}
+
+/* #container div:not(:nth-of-type(3n)) {
+    flex-basis: 50%;
+}
+#container div:nth-of-type(3n) {
+    flex-basis: 100%;
+} */
+/* #container div:nth-of-type(2) { only apply to a specific element in a row or column */
+    /* align-self: center; */
+/* } */
+
+/* flex-grow */ 
+
+/* #container:nth-of-type() */

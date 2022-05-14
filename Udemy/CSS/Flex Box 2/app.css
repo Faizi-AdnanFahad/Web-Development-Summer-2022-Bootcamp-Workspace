@@ -1,0 +1,66 @@
+body {
+    font-family: 'Open Sans', sans-serif;
+}
+
+h1 {
+    text-align: center;
+}
+
+#container {
+    background-color: #003049;
+    width: 90%;
+    height: 500px;
+    margin: 0 auto;
+    border: 5px solid #003049;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    /* flex-wrap: wrap; */
+    /* justify-content: center; distributes the space based on the main axis */
+    /* align-items: center; */ /* aligns based on cross axis*/
+    /* align-content: center; align-content controls ONLY the space between the `rows` or `columns` depending on flex-direction. */
+    /* align-content: flex-start; */
+    /* align-content: space-between; */    
+}
+
+#container div {
+    width: 200px;
+    height: 200px;
+    color: white;
+    font-weight: bold;
+    flex-basis: 1000px;
+    /* flex-basis: 400px; sets the initial size of the boxes wether it is a row or a column. Note: it dominates the width and the height property. */
+    /* flex-basis: 1700px; */
+}
+/*===============================*/
+/*
+align-self: is applied to a single element in the container of flexes in the cross axis
+*/
+/* div:nth-of-type(3) { Makes the third element align to center in the cross axis */
+    /* align-self: center; */
+/* } */
+
+/*===============================*/
+/* flex-grow: How the extra space in the main axis is distributed between elements*/
+/* div:nth-of-type(2) { All extra space to the main axis should belong to the second element square */
+    /* flex-grow: 1; */
+/* } */
+/*===============================*/
+/* the third element will get twice the space compared to the second element. And both of them get more space between the rest*/
+/* div:nth-of-type(3) {
+    flex-grow: 2;
+}
+
+div:nth-of-type(2) {
+    flex-grow: 1;
+}  */
+/*===============================*/
+/*
+flex-shrink helps us decide which element to be shrinked if all all elements in a flex is hardly fitting.
+In other words, which element's space is to be sacrificed to give its space to other elements.
+*/
+
+div:nth-of-type(3) {
+    flex-shrink: 2;
+}
+/*===============================*/
