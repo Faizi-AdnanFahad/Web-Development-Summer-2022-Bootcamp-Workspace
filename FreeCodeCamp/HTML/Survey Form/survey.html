@@ -7,27 +7,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Survey Form</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;400&display=swap" rel="stylesheet">
 </head>
 
 <body>
     <header>
-        <h1>freeCodeCamp Survey Form</h1>
-        <p>Thank you for taking the time to help us improve the platform</p>
+        <h1 id="title">freeCodeCamp Survey Form</h1>
+        <p id="description">Thank you for taking the time to help us improve the platform</p>
     </header>
     <main>
-        <form action="" id="survey-form">
+        <form action="/TBD" id="survey-form">
             <fieldset class="initialInfo">
-                <label for="">Name
-                    <input type="text" placeholder="Enter your name">
+                <label id="name-label" for="">Name
+                    <input type="text" id="name" placeholder="Enter your name" required>
                 </label>
-                <label for="">Email
-                    <input type="email" placeholder="Enter your email">
+                <label id="email-label" for="">Email
+                    <input type="email" id="email" placeholder="Enter your email" required>
                 </label>
-                <label for="">Age(optional)
-                    <input type="number" placeholder="Age">
+                <label id="number-label" for="">Age(optional)
+                    <input type="number" id="number" placeholder="Age" min="10" max="99" required>
                 </label>
                 <label for="">Which option best describes your current role?
-                    <select name="" id="">
+                    <select name="" id="dropdown">
                         <option value="">Select current role</option>
                         <option value="">Student</option>
                         <option value="">Full Time Job</option>
@@ -39,15 +42,15 @@
             </fieldset>
             <fieldset class="opinion">
                 <label for="">Would you recommend freeCodeCamp to a friend?
-                    <label for=""><input type="radio" name="name">
+                    <label for=""><input value="definetely" type="radio" name="name">
                         Definitely
                     </label>
                     <label for="">
-                        <input type="radio" name="name">
+                        <input type="radio" value="maybe" name="name">
                         Maybe
                     </label>
                     <label for="">
-                        <input type="radio" name="name">
+                        <input type="radio" value="not-sure" name="name">
                         Not sure
                     </label>
                 </label>
@@ -60,17 +63,17 @@
                     </select>
                 </label>
                 <label for="">What would you like to see improved? (Check all that apply)
-                    <label for=""><input type="checkbox"> Front-end Projects                    </label>
-                    <label for=""><input type="checkbox"> Back-end Projects</label>
-                    <label for=""><input type="checkbox"> Data Visualization</label>
-                    <label for=""><input type="checkbox"> Challenges</label>
-                    <label for=""><input type="checkbox"> Open Source Community</label>
-                    <label for=""><input type="checkbox"> Gitter help rooms</label>
-                    <label for=""><input type="checkbox"> Videos</label>
-                    <label for=""><input type="checkbox"> City Meetups</label>
-                    <label for=""><input type="checkbox"> Wiki</label>
-                    <label for=""><input type="checkbox"> Forum</label>
-                    <label for=""><input type="checkbox"> Additional Courses</label>
+                    <label for=""><input value="check1" type="checkbox"> Front-end Projects </label>
+                    <label for=""><input value="check2" type="checkbox"> Back-end Projects</label>
+                    <label for=""><input value="check3" type="checkbox"> Data Visualization</label>
+                    <label for=""><input value="check4" type="checkbox"> Challenges</label>
+                    <label for=""><input value="check5" type="checkbox"> Open Source Community</label>
+                    <label for=""><input value="check6" type="checkbox"> Gitter help rooms</label>
+                    <label for=""><input value="check7" type="checkbox"> Videos</label>
+                    <label for=""><input value="check8" type="checkbox"> City Meetups</label>
+                    <label for=""><input value="check9" type="checkbox"> Wiki</label>
+                    <label for=""><input value="check10" type="checkbox"> Forum</label>
+                    <label for=""><input value="check11" type="checkbox"> Additional Courses</label>
                 </label>
             </fieldset>
 
@@ -78,7 +81,7 @@
                 <label for="">Any comments or suggestions?
                     <textarea name="" id="" cols="30" rows="10" placeholder="Enter your comment here..."></textarea>
                 </label>
-                <input type="submit">
+                <input id="submit" type="submit">
             </fieldset>
         </form>
     </main>
