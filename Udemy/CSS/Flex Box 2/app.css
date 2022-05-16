@@ -14,8 +14,8 @@ h1 {
     border: 5px solid #003049;
     display: flex;
     flex-direction: row;
-    justify-content: center;
-    /* flex-wrap: wrap; */
+    /* justify-content: center; */
+    flex-wrap: wrap;
     /* justify-content: center; distributes the space based on the main axis */
     /* align-items: center; */ /* aligns based on cross axis*/
     /* align-content: center; align-content controls ONLY the space between the `rows` or `columns` depending on flex-direction. */
@@ -28,9 +28,24 @@ h1 {
     height: 200px;
     color: white;
     font-weight: bold;
-    flex-basis: 1000px;
+    flex-basis: 200px;
+    font-size: 2em;
+    padding: 1em 1em;
+
     /* flex-basis: 400px; sets the initial size of the boxes wether it is a row or a column. Note: it dominates the width and the height property. */
     /* flex-basis: 1700px; */
+}
+
+@media (max-width: 700px) {
+    #container div{
+        width: 50%;
+    }
+}
+
+@media (max-width: 600px) {
+    #container div{
+        width: 100%;
+    }
 }
 /*===============================*/
 /*
@@ -60,7 +75,7 @@ flex-shrink helps us decide which element to be shrinked if all all elements in 
 In other words, which element's space is to be sacrificed to give its space to other elements.
 */
 
-div:nth-of-type(3) {
+/* div:nth-of-type(3) {
     flex-shrink: 2;
-}
+} */
 /*===============================*/
