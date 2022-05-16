@@ -12,11 +12,58 @@ body {
 
 #survey-form {
     background-color: rgba(27, 27, 50, 0.8);
+    border-radius: 8px;
     margin: 0 auto;
     width: 800px;
     height: 1500px;
 }
 
-label input {
+label :not(input[type="checkbox"]):not(input[type="radio"]) {
     display: block;
+    width: 99%;
+    border-radius: 5px;
 }
+
+.initialInfo {
+    padding: 20px 10px;
+}
+
+.initialInfo input, .initialInfo select {
+    padding: 5px;
+    margin-top: 5px;
+    margin-bottom: 20px;
+    margin-left: 0;
+}
+
+.opinion {
+    padding: 20px 10px;
+}
+
+.opinion label {
+    margin-top: 5px;
+}
+
+.opinion label:last-child {
+    margin-bottom: 25px;
+}
+
+.opinion select {
+    margin-top: 10px;
+    margin-bottom: 30px;
+    padding: 5px;
+}
+
+.suggestion {
+    padding: 20px 10px;
+}
+
+.suggestion textarea {
+    margin: 13px 0;
+}
+
+.suggestion input {
+    background-color: #37af65;
+    width: 100%;
+    height: 40px;
+    color: white;
+ }
