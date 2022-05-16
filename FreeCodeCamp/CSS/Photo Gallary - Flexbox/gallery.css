@@ -2,25 +2,16 @@
     box-sizing: border-box;
 }
 
-#gallery img {
-    width: 25%;
-    height: 300px;
-    object-fit: cover; /* Important */
-    margin-top: 8px;
-    padding: 0 4px;
-    border-radius: 10px;
-}
-
 body {
     margin: 0;
     font-family: Arial;
-    background-color: #EBE7E7;
+    background: #EBE7E7;
 }
 
 .header {
     text-align: center;
     padding: 32px;
-    background-color: #E0DDDD;
+    background: #E0DDDD;
 }
 
 #gallery {
@@ -32,6 +23,17 @@ body {
     padding: 0 4px;
 }
 
+/* Default screen Size */
+#gallery img {
+    width: 25%;
+    height: 300px;
+    object-fit: cover;
+    margin-top: 8px;
+    padding: 0 4px;
+    border-radius: 10px;
+}
+
+/* At Certain screen sizes*/
 @media (max-width: 800px) {
     #gallery img {
         width: 50%;

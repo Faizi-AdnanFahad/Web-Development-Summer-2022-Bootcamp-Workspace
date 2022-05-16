@@ -32,7 +32,7 @@ h1, h2, p {
 }
 
 img {
-  display: block; /* Centering only works with block*/
+  display: block;
   margin-left: auto;
   margin-right: auto;
 }
@@ -83,7 +83,7 @@ a {
 }
 
 a:visited {
-  color: purple;
+  color: black;
 }
 
 a:hover {
@@ -91,5 +91,5 @@ a:hover {
 }
 
 a:active {
-  color: black;
+  color: brown;
 }
