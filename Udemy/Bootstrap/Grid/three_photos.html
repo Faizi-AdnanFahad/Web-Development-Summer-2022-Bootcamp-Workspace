@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <title>Three Photos</title>
+</head>
+
+<body>
+    <!-- The space between images could be handled with gutters in bootstrap.-->
+    <div class="container">
+        <div class="row">
+            <div class="col col-md-2">
+                <!-- img-fluid will allow the picture to resize itself based on the width of the screen automatically.-->
+                <img class="img-fluid" src="https://images.unsplash.com/photo-1525382455947-f319bc05fb35?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=896" alt="">
+            </div>
+            <div class="col col-md"  > <!-- on screen size smaller than md all of them should have occupy the same space. On screen sizes greater than md, the left and right ones should take 2 units of space while the middle one should take the rest of the space automatically-->
+                <img class="img-fluid" src="https://images.unsplash.com/photo-1576222901803-c062b57925b4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=851&q=80" alt="">
+            </div>
+            <div class="col col-md-2 ">
+                <img class="img-fluid" src="https://images.unsplash.com/photo-1598463166228-c0f90d180918?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=825" alt="">
+            </div>
+          </div>
+    </div>
+</body>
+
+</html>
