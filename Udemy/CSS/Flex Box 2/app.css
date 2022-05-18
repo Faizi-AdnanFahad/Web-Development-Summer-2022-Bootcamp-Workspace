@@ -13,15 +13,16 @@ h1 {
     margin: 0 auto;
     border: 5px solid #003049;
     display: flex;
-    flex-direction: row;
+    /* flex-direction: row; */
     /* justify-content: center; */
-    flex-wrap: wrap;
+    /* flex-wrap: wrap; */
     /* justify-content: center; distributes the space based on the main axis */
     /* align-items: center; */ /* aligns based on cross axis*/
     /* align-content: center; align-content controls ONLY the space between the `rows` or `columns` depending on flex-direction. */
     /* align-content: flex-start; */
     /* align-content: space-between; */    
 }
+
 
 #container div {
     width: 200px;
