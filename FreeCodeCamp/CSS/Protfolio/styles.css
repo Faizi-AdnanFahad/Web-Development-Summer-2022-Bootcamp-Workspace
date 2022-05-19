@@ -16,6 +16,7 @@ body {
     background-color: black;
     font-family: 'Poppins', sans-serif;
     font-size: 20px;
+    color: #f0f0f0;
 }
 nav div {
     color: #f0f0f0;
@@ -27,4 +28,92 @@ nav div {
 nav div:hover {
     background-color: darkblue;
     cursor: pointer;
+}
+
+.about {
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(45deg, #3a3d40, #181719);
+    padding-top: 50%;
+}
+
+.about p {
+    font-size: 3rem;
+    font-weight: 600;
+    text-align: center;
+}
+
+.web_developer {
+    padding-top: 20px;
+    font-size: 2rem;
+    font-weight: lighter;
+    display: block;
+    font-style: italic;
+    color: #be3144;
+}
+
+/* footer {
+    background-color: aqua;
+    width: 100%;
+    height: 100vh;
+} */
+
+.work {
+    background-color: #45567d;
+    width: 100%;
+    height: 100vh;
+}
+
+.work p {
+    font-size: 2em;
+    text-align: center;
+    font-weight: 600;
+    padding-top: 100px;
+}
+
+hr {
+    width: 70%;
+    min-width: 480px;
+}
+
+.projects {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 50px;
+    padding-top: 70px;
+    border: 2px solid black;
+    max-width: 70%;
+    margin: 0 auto;
+}
+
+.projects .project:nth-of-type(1) {
+    width: 400px;
+    height: 400px;
+    background-color: chartreuse;
+}
+
+.projects .project:nth-of-type(2) {
+    width: 400px;
+    height: 400px;
+    background-color: bisque;
+}
+
+.projects .project:nth-of-type(3) {
+    width: 400px;
+    height: 400px;
+    background-color: coral;
+}
+
+.projects .project:nth-of-type(4) {
+    width: 400px;
+    height: 400px;
+    background-color: darkmagenta;
+}
+
+.projects .project:nth-of-type(5) {
+    width: 400px;
+    height: 400px;
+    background-color: maroon;
 }
