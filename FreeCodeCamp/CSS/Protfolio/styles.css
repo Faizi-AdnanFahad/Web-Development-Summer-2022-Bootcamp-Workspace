@@ -1,0 +1,23 @@
+nav {
+    background-color: #be3144;
+    width: 100%;
+    height: 70px;
+    
+    display: flex;
+    flex-direction: row;
+    justify-content: right;
+    align-items: center;
+    gap: 20px;
+}
+
+body {
+    background-color: black;
+    font-family: 'Poppins', sans-serif;
+    font-size: 20px;
+}
+nav div {
+    color: #f0f0f0;
+    font-size: 1.5rem;
+    margin-right: 25px;
+}
+
