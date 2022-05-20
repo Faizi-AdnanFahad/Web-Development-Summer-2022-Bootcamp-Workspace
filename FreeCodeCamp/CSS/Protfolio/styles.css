@@ -128,8 +128,39 @@ button[class="show_all"] {
     color: inherit;
     transition: background-color 0.2s ease-in-out;
     border-radius: 5px;
+    cursor: pointer;
 }
 
 button[class="show_all"]:hover {
     background-color: #be3144;
+}
+
+.social-media {
+    background-color: #3d3e45;
+    text-align: center;
+    padding: 400px 0;
+    color: white;
+}
+
+.social-media p:nth-of-type(1) {
+    font-size: 3em;
+}
+
+.social-media p:nth-of-type(2) {
+    margin-top: 20px;
+    font-size: 0.9em;
+    font-style: italic;
+    color: rgb(194, 194, 194);
+    font-weight: normal;
+}
+
+.contacts {
+    margin-top: 60px;
+    display: flex;
+    gap: 80px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.contact {
 }
