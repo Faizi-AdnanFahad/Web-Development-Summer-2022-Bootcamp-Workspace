@@ -17,19 +17,24 @@
     <header>
         <nav>
             <div>About</div>
-            <div>Work</div>
-            <div>Contact</div>
+            <a href="#section_work">
+                <div>Work</div>
+            </a>
+            <a href="#section_contact">
+                <div>Contact</div>
+            </a>
         </nav>
     </header>
 
     <main>
         <section class="about">
-            <p>Hey I am Mimic <span class="web_developer">a web developer</span></p>
+            <p class="p1">Hey I am Mimic</p>
+            <p class="p2">a web developer</p>
         </section>
 
-        <section class="work">
+        <section id="section_work" class="work">
             <p>These are some of my projects</p>
-            <hr>
+            <hr class="some_projects">
 
             <section class="projects">
                 <div class="project">
@@ -71,7 +76,7 @@
             <button class="show_all">Show all &gt;</button>
         </section>
 
-        <section class="social-media">
+        <section id="section_contact" class="social-media">
             <p>Let's work together...</p>
             <p>How do you take your coffee?</p>
 
@@ -91,10 +96,12 @@
                 </a>
             </section>
         </section>
+        <hr class="footer">
     </main>
 
     <footer>
-
+        <p>**This is just a fake portfolio. All the projects and contact details given are not real.</p>
+        <p>© Created for freeCodeCamp</p>
     </footer>
 </body>
 
