@@ -195,3 +195,7 @@ footer {
     gap: 50px;
 }
 
+.fa-facebook-square:before {
+    content: "\f082";
+}
+
