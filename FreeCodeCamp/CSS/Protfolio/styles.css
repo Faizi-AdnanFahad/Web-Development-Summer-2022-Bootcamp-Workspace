@@ -163,4 +163,18 @@ button[class="show_all"]:hover {
 }
 
 .contact {
+    padding: 4px;
+    transition: transform 400ms ease-in-out;
+
+}
+
+a {
+    text-decoration: none;
+    color: #FFFFFF;
+}
+
+.contact:hover {
+    transform: translateY(9px);
+    cursor: pointer;
+    text-decoration: none;
 }
