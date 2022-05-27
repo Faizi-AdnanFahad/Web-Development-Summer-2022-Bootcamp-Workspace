@@ -72,9 +72,51 @@
             <h2>MUESUM OF CANDY</h2>
             <img class="d-none d-lg-inline" src="imgs/lolli_icon.png" alt="">
             <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam veniam consectetur eveniet
-              omnis reiciendis sapiente veritatis laboriosam, quia hic? Perspiciatis reiciendis delectus est, tempore nam
+              omnis reiciendis sapiente veritatis laboriosam, quia hic? Perspiciatis reiciendis delectus est, tempore
+              nam
               libero facilis beatae necessitatibus deserunt.</p>
-            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="container-fluid px-0 content">
+    <div class="row align-items-center">
+      <div class="col-lg-6">
+        <div class="row justify-content-center">
+          <div class="col-10 col-lg-8">
+            <h2>MUESUM OF CANDY</h2>
+            <img class="d-none d-lg-inline" src="imgs/lolli_icon.png" alt="">
+            <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam veniam consectetur eveniet
+              omnis reiciendis sapiente veritatis laboriosam, quia hic? Perspiciatis reiciendis delectus est, tempore
+              nam
+              libero facilis beatae necessitatibus deserunt.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6 img-fluid">
+        <img class="img-fluid" src="imgs/gumball.png" alt="">
+      </div>
+    </div>
+  </section>
+
+  <section class="container-fluid px-0 content">
+    <div class="row align-items-center">
+      <div class="col-lg-6 img-fluid">
+        <img class="img-fluid" src="imgs/sprinkles.png" alt="">
+      </div>
+      <div class="col-lg-6">
+        <div class="text-white text-center d-none d-lg-block mt-5">
+          <div id="headingGroup">
+            <h2 class="display-2">MUSEUM<span>/</span>OF<span>/</span>CANDY</h2>
+            <h2 class="display-2">MUSEUM<span>/</span>OF<span>/</span>CANDY</h2>
+            <h2 class="display-2">MUSEUM<span>/</span>OF<span>/</span>CANDY</h2>
+            <h2 class="display-2">MUSEUM<span>/</span>OF<span>/</span>CANDY</h2>
+            <h2 class="display-2">MUSEUM<span>/</span>OF<span>/</span>CANDY</h2>
+            <h2 class="display-2">MUSEUM<span>/</span>OF<span>/</span>CANDY</h2>
+            <h2 class="display-2">MUSEUM<span>/</span>OF<span>/</span>CANDY</h2>
+          </div>
         </div>
       </div>
     </div>
@@ -92,6 +134,15 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
     integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
     crossorigin="anonymous"></script>
+
+    <script>
+      $(function () {
+          $(document).scroll(function () {
+              var $nav = $("#mainNavbar");
+              $nav.toggleClass("scrolled", $(this).scrollTop() > $nav.height());
+          });
+      });
+  </script>
 
 </body>
 
