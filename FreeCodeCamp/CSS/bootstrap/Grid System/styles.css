@@ -1,3 +1,42 @@
 body {
-    background-color: rgba(10, 10, 35, 0.98);
+    /* background-color: rgba(10, 10, 35, 0.98); */
+    background-color: #20203b;
+}
+
+.generation {
+    color: orangered;
+    text-transform: uppercase;
+    font-family: 'Anton', sans-serif;
+    font-size: 8rem;
+    text-align: center;
+}
+
+.short-para {
+    color: orangered;
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 150;
+}
+
+.social-media {
+    color: linen;
+    font-size: 2rem;
+    font-family: 'Raleway', sans-serif;
+}
+
+.social-media span {
+    color: #FFFFFF80;
+}
+
+.social-media a {
+    all: unset;
+}
+
+.social-media a:hover {
+    background-color: darkgreen;
+    cursor: pointer;
+}
+
+.container {
+    width: 90%;
 }
