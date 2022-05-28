@@ -91,3 +91,8 @@ hr {
 .container-fluid {
     width: 90%;
 }
+
+.space {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
