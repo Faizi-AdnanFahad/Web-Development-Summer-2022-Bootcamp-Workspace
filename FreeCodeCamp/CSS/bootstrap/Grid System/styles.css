@@ -42,6 +42,25 @@ header img {
     cursor: pointer;
 }
 
-.container {
+.main-content {
     width: 90%;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.main-content div {
+    font-family: 'Baskervville', serif;
+    color: linen;
+    text-align: justify;
+}
+
+hr {
+    background-color: linen;
+}
+
+.main-content span {
+    display: inline-block;
+    color: #00BEEF;
+    font-size: 1.4rem;
+    text-align: center;
 }
