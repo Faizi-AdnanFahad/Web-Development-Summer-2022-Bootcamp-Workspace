@@ -82,3 +82,12 @@ hr {
     font-weight: bold;
     font-size: 1.2rem;
 }
+
+.blue_text {
+    color: #00BEEF;
+    font-family: 'Baskervville', serif;
+}
+
+.container-fluid {
+    width: 90%;
+}
