@@ -64,3 +64,21 @@ hr {
     font-size: 1.4rem;
     text-align: center;
 }
+
+.info_pics h2 {
+    font-size: 1.4rem;
+    color: #00BEEF;
+    font-weight: bold;
+}
+
+.info_pics .info_text {
+    font-family: 'Baskervville', serif;
+    color: linen;
+}
+
+.v_headers {
+    color: #00BEEF;
+    font-family: 'Baskervville', serif;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
