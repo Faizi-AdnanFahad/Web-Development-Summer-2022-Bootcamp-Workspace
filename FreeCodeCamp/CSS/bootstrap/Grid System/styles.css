@@ -1,6 +1,11 @@
 body {
     /* background-color: rgba(10, 10, 35, 0.98); */
-    background-color: #20203b;
+    background-color: rgb(20 30 40);
+}
+
+header img {
+    display: block;
+    margin: 0 auto;
 }
 
 .generation {
