@@ -1,11 +1,16 @@
 
-let max = prompt("Welcome! Enter your max number: ");
+let max = parseInt(prompt("Welcome! Enter your max number: "));
+
+while (!max) {
+    max = parseInt(prompt("Please enter a valid number: "));
+}
+
 let randomNum = Math.floor(Math.random() * max + 1);
 console.log(randomNum);
 
-let guess = prompt("Enter your first Guess: ");
+let guess = parseInt(prompt("Enter your first Guess: "));
 let numOfGuesses = 0;
-while (guess != randomNum) {
+while (guess !== randomNum) {
     if (guess > randomNum) {
         guess = prompt("Too High... Guess Again: ")
     }
@@ -16,7 +21,7 @@ while (guess != randomNum) {
     if (guess === "q") {
         break;
     }
-    numOfGuesses ++;
+    numOfGuesses++;
 }
 
 if (guess !== "q") {
