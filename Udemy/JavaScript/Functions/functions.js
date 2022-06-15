@@ -29,3 +29,16 @@ function repeat(str, n) {
 repeat("$ ", 4);
 
 // ***********Intermediate Functions**********
+
+//-------------Using a function as an argument-----------------//
+// https://www.udemy.com/course/the-web-developer-bootcamp/learn/lecture/22003494#questions/13528422
+function IwillBePassed(name) {
+    return "Hi, there!" + name;
+}
+
+function takeAnotherFunctionAsArgument(func) {
+    console.log(func() + "!!!!!!!!!!!!!!!");
+}
+
+takeAnotherFunctionAsArgument(() => IwillBePassed("John"));
+//------------------------------//
