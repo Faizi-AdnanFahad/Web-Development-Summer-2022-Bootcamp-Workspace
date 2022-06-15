@@ -2,7 +2,7 @@
 let option = prompt("What would you like to do?").toLowerCase();
 
 let list = [];
-while (option !== "quit") {
+while (option !== "quit" && option !== 'q') {
     if (option === "new") {
         let item = prompt("Enter new todo: ");
         list.push(item);
@@ -17,7 +17,10 @@ while (option !== "quit") {
     }
     else if (option === "delete") {
         let index = prompt("Enter the number to delete the item: ");
-        list.splice(index, 1);
+        let deleted = list.splice(index, 1);
+        console.log(`Okay, ${deleted[0]} has been deleted.`)
     }
     option = prompt("What would you like to do?").toLowerCase();
 }
+
+console.log("Okay, you quit");
