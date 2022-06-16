@@ -88,3 +88,27 @@
 
     //-------------------------------------------------------------------------//
 
+    /*************           Methods         ***************/ 
+    const myMath = {
+        add: function(x, y) {
+            return x + y;
+        },
+        subtruct(x, y) { // alternatively this syntax can be used
+            return x - y;
+        }
+    }
+
+    let result = myMath.add(2, 4);
+    console.log(result);
+
+
+    let cat = {
+        name: "Tommmyy",
+        age: 10,
+        meow() {
+            console.log(this.name + " says MEOWWWWWW")
+        }
+    }
+
+    cat.meow();
+
