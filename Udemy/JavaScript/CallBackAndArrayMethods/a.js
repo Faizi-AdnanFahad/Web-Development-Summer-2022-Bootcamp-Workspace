@@ -18,14 +18,23 @@
 // /*******************************/
 
 /*Prints after 3 seconds*/
-setTimeout(() => {
-    console.log("Hi");
-}, 3000);
+// setTimeout(() => {
+//     console.log("Hi");
+// }, 3000);
 
-/*Prints every 1 second*/
-let id = setInterval(() => {
-    console.log("Hi");
-}, 1000);
+// /*Prints every 1 second*/
+// let id = setInterval(() => {
+//     console.log("Hi");
+// }, 1000);
 
 // clearInterval(id); stops the iterval
 // /*******************************/
+
+/***************Filter****************/
+let numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+let div3 = numbers.filter((num) => {
+    return num % 3 === 0;
+})
+console.log(div3);
+
+/*******************************/
