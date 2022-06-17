@@ -10,13 +10,15 @@ const allImages = document.getElementsByTagName('img');
 // }
 
 
-const squareImages = document.getElementsByClassName('square');
+// const squareImages = document.getElementsByClassName('square');
 
-for (let img of squareImages) {
-    img.src = 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e2/Silky_bantam.jpg/440px-Silky_bantam.jpg';
-}
+// for (let img of squareImages) {
+//     img.src = 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e2/Silky_bantam.jpg/440px-Silky_bantam.jpg';
+// }
 
-// const links = document.querySelectorAll('p a');
+// // Query Selector
+// const qs = document.querySelectorAll('img'); // returns an array of elements with tag img
+// const links = document.querySelectorAll('p a'); // All anchor tags inside paragraph
 
 // for (let link of links) {
 //     console.log(link.href)
