@@ -35,3 +35,11 @@ function restDemo2(person1, person2, ...arg1) {
 restDemo2("Tina", "John", 'Ali', 'Karim'); // GOLD: Tina, SILVER: John, The rest of the participants are Ali,Karim
 
 /*************************************************************/
+// Destructuring;
+let players = ['Messi', 'Ronaldo', 'Ramos', 'Sliva'];
+let [ forward, winger, defender, midfielder ] = players;
+// forward = 'Messi', winger = 'Ronaldo'...
+
+let numbers = [1, 5, 704, 345, 654];
+let [ first, second, ...rest] = numbers;
+// first = 1, second = 5, rest = [704, 345, 654]
