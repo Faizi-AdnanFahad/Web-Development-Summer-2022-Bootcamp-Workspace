@@ -35,7 +35,7 @@ function restDemo2(person1, person2, ...arg1) {
 restDemo2("Tina", "John", 'Ali', 'Karim'); // GOLD: Tina, SILVER: John, The rest of the participants are Ali,Karim
 
 /*************************************************************/
-// Destructuring;
+// Destructuring on Arrays
 let players = ['Messi', 'Ronaldo', 'Ramos', 'Sliva'];
 let [ forward, winger, defender, midfielder ] = players;
 // forward = 'Messi', winger = 'Ronaldo'...
@@ -43,3 +43,15 @@ let [ forward, winger, defender, midfielder ] = players;
 let numbers = [1, 5, 704, 345, 654];
 let [ first, second, ...rest] = numbers;
 // first = 1, second = 5, rest = [704, 345, 654]
+
+// Destructuring on Objects
+let person = {
+    name: 'Sarah', 
+    lName: 'Michael',
+    birthYear: 1999,
+    deathYear: 2020
+}
+
+let {name: fName, lName, age = 12} = person
+// lName = person.lName, name = person.name but will be renamed to fName
+// Since age doesn't exist, the new age value of 12 will be given
