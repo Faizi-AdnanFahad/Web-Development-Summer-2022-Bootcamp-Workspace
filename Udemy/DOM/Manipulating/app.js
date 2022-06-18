@@ -21,3 +21,13 @@ for (let bp of bulletPoints) {
     bp.style.fontSize = '1.5rem';
     bp.style.color = '#42f578';
 }
+
+// classList 
+/* Rather than modifying styles for each element individually, we can make a class for them in our css file and add it using JavaScript's classList*/
+
+/*add a border to our paragraphs while changing the color of the text*/
+let paragraphs = document.querySelectorAll('p');
+for (let p of paragraphs) {
+    p.classList.add('purple');
+    p.classList.add('border');
+}
