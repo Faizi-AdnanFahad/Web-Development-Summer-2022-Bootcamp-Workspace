@@ -30,4 +30,11 @@ let paragraphs = document.querySelectorAll('p');
 for (let p of paragraphs) {
     p.classList.add('purple');
     p.classList.add('border');
+    // p.classList.toggle('className') could be used to turn a class on/off to see its affect on the class.
 }
+
+// Relationship Hirarchy
+let img = document.querySelector('img');
+console.log(img.parentElement); // Body
+console.log(img.nextElementSibling); // Next img
+console.log(img.children); // a collection of an element's children 
