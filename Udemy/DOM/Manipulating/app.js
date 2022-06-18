@@ -57,3 +57,5 @@ h2.append("This is going between h1 and first img");
 
 h1.insertAdjacentElement("afterend", h2);
 /*******************************************************/
+// removing an element
+// img.remove(); // removes the img
