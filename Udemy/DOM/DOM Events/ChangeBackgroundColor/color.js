@@ -5,12 +5,27 @@ let btn = document.querySelector('#changeBkgrnd');
 
 
 
-btn.addEventListener('click', () => {
+function generateRandColor() {
     let firstColor = Math.floor(Math.random() * 256) + 1;
     let secondColor = Math.floor(Math.random() * 256) + 1;
     let thirdColor = Math.floor(Math.random() * 256) + 1;
-    h1.innerText = `rgb(${firstColor},${secondColor},${thirdColor})`;
-    document.body.style.backgroundColor = `rgb(${firstColor},${secondColor},${thirdColor})`;
 
+    return [firstColor, secondColor, thirdColor];
+}
 
+btn.addEventListener('click', () => {
+    let colors = generateRandColor();
+
+    let newColor = `rgb(${colors[0]},${colors[1]},${colors[2]})`;
+    console.log(colors[0] + colors[1] + colors[2]  <= 300);
+
+    /* If the background color is too dark, the heading color whill be set to white.*/
+    if (colors[0] + colors[1] + colors[2] <= 50) {
+        h1.style.color = 'white';
+    }
+    else {
+        h1.style.color = 'black';
+    }
+    h1.innerText = newColor;
+    document.body.style.backgroundColor = newColor;
 })
