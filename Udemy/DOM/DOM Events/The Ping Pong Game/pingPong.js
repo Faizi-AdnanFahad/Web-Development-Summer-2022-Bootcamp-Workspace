@@ -50,6 +50,7 @@ player2BTN.addEventListener('click', function() {
     }
 });
 
+/* Resets all buttons */
 function resetGame() {
     firstPlayerScore.innerText = 0;
     secondPlayerScore.innerText = 0;
@@ -59,7 +60,5 @@ function resetGame() {
     value2 = 0;
 }
 
-resetBTN.addEventListener('click', function() {
-    /* Reset Everything */
-    resetGame()
-});
+// Reset Button
+resetBTN.addEventListener('click', resetGame);
