@@ -44,3 +44,11 @@ h2 {
 #buttons button:nth-of-type(3) {
     background-color: rgb(155, 146, 236);
 }
+
+#firstPlayerScore {
+    color: rgb(95, 236, 85);
+}
+
+#secondPlayerScore {
+    color: rgb(243, 109, 196);
+}
