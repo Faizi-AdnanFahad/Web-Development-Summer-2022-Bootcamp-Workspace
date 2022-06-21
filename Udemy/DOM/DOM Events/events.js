@@ -92,3 +92,10 @@ document.addEventListener('keydown', function(event) {
 })
 
 /************************************************************************************************************/
+
+let form = document.querySelector('#formSubmitListener');
+/* When the user submits the button, what should happen to the form? The default behaviour is to submit it to the link in the action attribute in form-html*/
+form.addEventListener('submit', function(event) {
+    event.preventDefault(); // It will not go to the `target` page.
+    console.log("SUBMITTED!");
+})
