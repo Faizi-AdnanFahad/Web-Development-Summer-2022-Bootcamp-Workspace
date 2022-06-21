@@ -1,15 +1,20 @@
 let player1BTN = document.querySelector('#player1BTN');
 let firstPlayerScore = document.querySelector('#firstPlayerScore');
-let value1 = parseInt(firstPlayerScore.innerText);
+let value1 = 0;
 
 let player2BTN = document.querySelector('#player2BTN');
 let secondPlayerScore = document.querySelector('#secondPlayerScore');
-let value2 = parseInt(secondPlayerScore.innerText);
+let value2 = 0;
 
 let resetBTN = document.querySelector('#resetBTN');
 
-let select = document.querySelector('#scoreMax');
-let selectValue = parseInt(select.options[select.selectedIndex].innerText);
+let selectWinningScore = document.querySelector('#scoreMax');
+let winningScore = parseInt(selectWinningScore.options[selectWinningScore.selectedIndex].innerText);
+/* In case they change the value of select*/
+selectWinningScore.addEventListener('change', function() {
+    winningScore = parseInt(selectWinningScore.value);
+    resetGame();
+})
 
 function incrementScore(player, value) {
     value ++;
@@ -18,9 +23,10 @@ function incrementScore(player, value) {
 }
 
 player1BTN.addEventListener('click', function() {
-    if (!(value1 === selectValue || value2 === selectValue) && value1 < selectValue) {
+    let gameOver = (value1 === winningScore || value2 === winningScore);
+    if (!gameOver && value1 != winningScore) {
         value1 = incrementScore(firstPlayerScore, value1);
-        if (value1 === selectValue) {
+        if (value1 === winningScore) {
             firstPlayerScore.style.color = "green";
             secondPlayerScore.style.color = 'red';
         }
@@ -31,9 +37,10 @@ player1BTN.addEventListener('click', function() {
 })
 
 player2BTN.addEventListener('click', function() {
-    if (!(value1 === selectValue || value2 === selectValue) && value2 < selectValue) {
+    let gameOver = (value1 === winningScore || value2 === winningScore);
+    if (!gameOver && value2 != winningScore) {
         value2 = incrementScore(secondPlayerScore, value2);
-        if (value2 === selectValue) {
+        if (value2 === winningScore) {
             secondPlayerScore.style.color = "green";
             firstPlayerScore.style.color = 'red';
         }
@@ -43,11 +50,16 @@ player2BTN.addEventListener('click', function() {
     }
 });
 
-resetBTN.addEventListener('click', function() {
-    /* Reset Everything */
+function resetGame() {
     firstPlayerScore.innerText = 0;
     secondPlayerScore.innerText = 0;
+    firstPlayerScore.style.color = 'white';
+    secondPlayerScore.style.color = 'white';
     value1 = 0;
     value2 = 0;
-});
+}
 
+resetBTN.addEventListener('click', function() {
+    /* Reset Everything */
+    resetGame()
+});
