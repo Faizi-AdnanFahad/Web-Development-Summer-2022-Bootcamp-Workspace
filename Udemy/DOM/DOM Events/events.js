@@ -109,3 +109,18 @@ let h2Change = document.querySelector('#h2Change');
 inputChange.addEventListener('input', function() {
     h2Change.innerText = inputChange.value;
 })
+
+/************************************************************************************************************/
+/* Event Bubbling */
+
+let chngColorBtn = document.querySelector('#chngColor');
+let divContainer = document.querySelector('#container');
+
+chngColorBtn.addEventListener('click', function(event) {
+    divContainer.style.backgroundColor = generateRandColor();
+    event.stopPropagation(); /* Since button is definied iside the div element, clicking on the button would trigger theEventListener for button and then theEventListener for the div element. To stop this, we use this function. */
+})
+
+divContainer.addEventListener('click', function() {
+    divContainer.classList.toggle('hide');
+})
