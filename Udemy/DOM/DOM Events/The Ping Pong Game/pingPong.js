@@ -32,7 +32,7 @@ player1BTN.addEventListener('click', function() {
         }
     }
     else {
-        alert("There is already a winner");
+        player1BTN.disabled = true;
     }
 })
 
@@ -46,7 +46,7 @@ player2BTN.addEventListener('click', function() {
         }
     }
     else {
-        alert("There is already a winner");
+        player2BTN.disabled = true;
     }
 });
 
