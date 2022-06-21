@@ -1,10 +1,14 @@
-let player1BTN = document.querySelector('#player1BTN');
-let firstPlayerScore = document.querySelector('#firstPlayerScore');
-let value1 = 0;
+p1 = {
+    button: document.querySelector('#player1BTN'), 
+    score: document.querySelector('#firstPlayerScore'),
+    value: 0
+}
 
-let player2BTN = document.querySelector('#player2BTN');
-let secondPlayerScore = document.querySelector('#secondPlayerScore');
-let value2 = 0;
+p2 = {
+    button: document.querySelector('#player2BTN'),
+    score: document.querySelector('#secondPlayerScore'),
+    value: 0
+}
 
 let resetBTN = document.querySelector('#resetBTN');
 
@@ -16,53 +20,38 @@ selectWinningScore.addEventListener('change', function () {
     resetGame();
 })
 
-function incrementScore(player, value) {
-    value++;
-    player.innerText = value;
-    return value;
+function updateScores(player, opponent) {
+    let gameOver = (player.value === winningScore || opponent.value === winningScore);
+    if (!gameOver && player.value != winningScore) {
+        player.value ++;
+        player.score.innerText = player.value;
+        if (player.value === winningScore) {
+            player.score.style.color = "green";
+            opponent.score.style.color = 'red';
+        }
+    }
+    else {
+        player.button.disabled = true;
+        opponent.button.disabled = true;
+    }
 }
 
-player1BTN.addEventListener('click', function () {
-    let gameOver = (value1 === winningScore || value2 === winningScore);
-    if (!gameOver && value1 != winningScore) {
-        value1++;
-        firstPlayerScore.innerText = value1;
-        if (value1 === winningScore) {
-            firstPlayerScore.style.color = "green";
-            secondPlayerScore.style.color = 'red';
-        }
-    }
-    else {
-        player1BTN.disabled = true;
-    }
+p1.button.addEventListener('click', function () {
+    updateScores(p1, p2);
 })
 
-player2BTN.addEventListener('click', function () {
-    let gameOver = (value1 === winningScore || value2 === winningScore);
-    if (!gameOver && value2 != winningScore) {
-        value2 ++;
-        secondPlayerScore.innerText = value2;
-        if (value2 === winningScore) {
-            secondPlayerScore.style.color = "green";
-            firstPlayerScore.style.color = 'red';
-        }
-    }
-    else {
-        player2BTN.disabled = true;
-    }
+p2.button.addEventListener('click', function () {
+    updateScores(p2, p1);
 });
 
 /* Resets all buttons */
 function resetGame() {
-    firstPlayerScore.innerText = 0;
-    secondPlayerScore.innerText = 0;
-    firstPlayerScore.style.color = 'white';
-    secondPlayerScore.style.color = 'white';
-    value1 = 0;
-    value2 = 0;
-    player1BTN.disabled = false;
-    player2BTN.disabled = false;
+    for (let p of [p1, p2]) {
+        p.score.innerText = 0;
+        p.score.style.color = 'white';
+        p.value = 0;
+        p.button.disabled = false; // enable the buttons to clickable
+    }  
 }
-
 // Reset Button
 resetBTN.addEventListener('click', resetGame);
