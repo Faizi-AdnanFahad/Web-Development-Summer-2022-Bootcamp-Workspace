@@ -11,21 +11,22 @@ let resetBTN = document.querySelector('#resetBTN');
 let selectWinningScore = document.querySelector('#scoreMax');
 let winningScore = parseInt(selectWinningScore.options[selectWinningScore.selectedIndex].innerText);
 /* In case they change the value of select*/
-selectWinningScore.addEventListener('change', function() {
+selectWinningScore.addEventListener('change', function () {
     winningScore = parseInt(selectWinningScore.value);
     resetGame();
 })
 
 function incrementScore(player, value) {
-    value ++;
+    value++;
     player.innerText = value;
     return value;
 }
 
-player1BTN.addEventListener('click', function() {
+player1BTN.addEventListener('click', function () {
     let gameOver = (value1 === winningScore || value2 === winningScore);
     if (!gameOver && value1 != winningScore) {
-        value1 = incrementScore(firstPlayerScore, value1);
+        value1++;
+        firstPlayerScore.innerText = value1;
         if (value1 === winningScore) {
             firstPlayerScore.style.color = "green";
             secondPlayerScore.style.color = 'red';
@@ -36,10 +37,11 @@ player1BTN.addEventListener('click', function() {
     }
 })
 
-player2BTN.addEventListener('click', function() {
+player2BTN.addEventListener('click', function () {
     let gameOver = (value1 === winningScore || value2 === winningScore);
     if (!gameOver && value2 != winningScore) {
-        value2 = incrementScore(secondPlayerScore, value2);
+        value2 ++;
+        secondPlayerScore.innerText = value2;
         if (value2 === winningScore) {
             secondPlayerScore.style.color = "green";
             firstPlayerScore.style.color = 'red';
@@ -58,6 +60,8 @@ function resetGame() {
     secondPlayerScore.style.color = 'white';
     value1 = 0;
     value2 = 0;
+    player1BTN.disabled = false;
+    player2BTN.disabled = false;
 }
 
 // Reset Button
