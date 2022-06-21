@@ -38,3 +38,57 @@ bv3.addEventListener('click', () => {
 document.body.appendChild(pCounter);
 
 
+/************************************************************************************************************/
+
+/* The use of `this` in theEventListener */
+
+/*
+    To have a common feature applied to multiple buttons, we can define it in a different function and use the keyword this with fucntion defintion. NOT array function definition.
+*/
+
+// Helper Method
+function generateRandColor() {
+    let firstColor = Math.floor(Math.random() * 256) + 1;
+    let secondColor = Math.floor(Math.random() * 256) + 1;
+    let thirdColor = Math.floor(Math.random() * 256) + 1;
+
+    return `rgb(${firstColor},${secondColor},${thirdColor})`;
+}
+
+// Helper Method
+function changebkgColor() {
+    this.style.backgroundColor = generateRandColor();
+    this.style.color = generateRandColor();
+}
+
+let buttons = document.querySelectorAll('#buttonChangeColor');
+for (let button of buttons) {
+    button.addEventListener('click', changebkgColor);
+}
+
+let h2s = document.querySelectorAll('h2');
+for (let h2 of h2s) {
+    h2.addEventListener('click', changebkgColor);
+}
+
+/************************************************************************************************************/
+
+// as the key is going down when the key is pressed
+let input = document.querySelector('input');
+input.addEventListener('keyup', function(event) {
+    console.log(event);
+    console.log(event.key);
+    console.log(event.code);
+})
+
+// // as the key is going up when the key is released
+// input.addEventListener('keydown', function() {
+//     console.log("keydown");
+// })
+
+/* Doing something when user is clicking ANYWHERE in the page */
+document.addEventListener('keydown', function(event) {
+    console.log("You pressed " + event.key);
+})
+
+/************************************************************************************************************/

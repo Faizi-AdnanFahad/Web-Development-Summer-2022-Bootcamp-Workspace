@@ -13,7 +13,9 @@ function generateRandColor() {
     return [firstColor, secondColor, thirdColor];
 }
 
-btn.addEventListener('click', () => {
+btn.addEventListener('click', function() {
+    console.log(btn);
+    console.log(this); // this == btn when function keyword is used when declaring the fuction. It will not work if an arrow function has been used. (this == window in arrow handler function)
     let colors = generateRandColor();
 
     let newColor = `rgb(${colors[0]},${colors[1]},${colors[2]})`;
