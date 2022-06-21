@@ -99,3 +99,13 @@ form.addEventListener('submit', function(event) {
     event.preventDefault(); // It will not go to the `target` page.
     console.log("SUBMITTED!");
 })
+
+/************************************************************************************************************/
+
+let inputChange = document.querySelector('#change');
+let h2Change = document.querySelector('#h2Change');
+/*The `change` event will only work once the change has been applied and the mouse has been clicked somewhere outside the input. */
+/*The  `input` event will be applied as soon as changes are occuring in the input field. */
+inputChange.addEventListener('input', function() {
+    h2Change.innerText = inputChange.value;
+})

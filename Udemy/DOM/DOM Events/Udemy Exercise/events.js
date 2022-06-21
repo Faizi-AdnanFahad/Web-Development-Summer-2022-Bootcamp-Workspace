@@ -2,6 +2,7 @@
 const form = document.querySelector('form');
 const ulList = document.querySelector('#list');
 let inputs = document.querySelectorAll('input');
+
 form.addEventListener('submit', function(event) {
     event.preventDefault();
     let newLi = document.createElement('li');
@@ -9,4 +10,4 @@ form.addEventListener('submit', function(event) {
     ulList.appendChild(newLi);
     inputs[0].value = '';
     inputs[1].value = '';
-})
+});
