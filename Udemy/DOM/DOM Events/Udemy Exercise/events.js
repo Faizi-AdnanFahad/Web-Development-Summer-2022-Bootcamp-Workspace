@@ -11,3 +11,13 @@ form.addEventListener('submit', function(event) {
     inputs[0].value = '';
     inputs[1].value = '';
 });
+
+
+
+/* Event Delgation: will allow us to have the addEvenetListener for an element even if did not exist at the beginning and was later added. */
+/* Instead of doing this property on li that may not exist yet, we can do it on a parent that does exist and check its target to be the element we want to apply the property on and apply the property on it. */
+ulList.addEventListener('click', function(event) {
+    if (event.target.nodeName === 'LI') {
+        event.target.remove();
+    }
+})
