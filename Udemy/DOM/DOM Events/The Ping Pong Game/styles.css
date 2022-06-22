@@ -35,18 +35,19 @@ h2 {
 #buttons button:nth-of-type(1) {
     font-weight: bold;
     background-color: #00D1B2;
-    border: none;
     color: white;
 }
 
 #buttons button:nth-of-type(2) {
     background-color: #209CEE;
-    border: none;
     color: white;
 }
 
 #buttons button:nth-of-type(3) {
     background-color: rgb(155, 146, 236);
-    border: none;
     color: white;
+}
+
+button:hover {
+    border: 5px solid red;
 }

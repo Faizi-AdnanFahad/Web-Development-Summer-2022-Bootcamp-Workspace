@@ -33,6 +33,7 @@ function updateScores(player, opponent) {
     else {
         player.button.disabled = true;
         opponent.button.disabled = true;
+        player.style.cursor = 'wait';
     }
 }
 
