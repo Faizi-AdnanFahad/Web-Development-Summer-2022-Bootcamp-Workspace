@@ -69,3 +69,7 @@ input {
 hr {
     margin: 40px 0;
 }
+
+.overflow {
+    overflow: scroll;
+}
