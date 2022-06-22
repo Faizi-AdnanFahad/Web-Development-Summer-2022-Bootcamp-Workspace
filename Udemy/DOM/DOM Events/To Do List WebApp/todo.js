@@ -41,6 +41,10 @@ addBTN.addEventListener('click', function () {
         let btnDelete = document.createElement('button');
         btnDelete.innerText = 'Delete';
         div_2.appendChild(btnDelete);
+
+        btnDelete.addEventListener('click', function() {
+            localContainer.remove();
+        })
         if (todoInput.value.length >= 88) {
             newDiv.style = 'overflow: scroll';
         }
@@ -96,6 +100,10 @@ todoInput.addEventListener('keydown', function (event) {
         let btnDelete = document.createElement('button');
         btnDelete.innerText = 'Delete';
         div_2.appendChild(btnDelete);
+
+        btnDelete.addEventListener('click', function() {
+            localContainer.remove();
+        })
         if (todoInput.value.length >= 88) {
             newDiv.style = 'overflow: scroll';
         }
