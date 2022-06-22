@@ -5,13 +5,40 @@ let container = document.querySelector("#container");
 
 addBTN.addEventListener('click', function () {
     if (todoInput.value) {
-        let newDiv = document.createElement('div');
-        newDiv.classList.add("newToDoDiv");
+        let localContainer = document.createElement('div');
+        localContainer.style.width = '80%';
+        localContainer.classList.add('container');
+
+        let row = document.createElement('div');
+        row.classList.add('row');
+
+        let div_1 = document.createElement('div');
+        div_1.classList.add('col-1');
+
+        let newCheckbox = document.createElement('input');
+        newCheckbox.type = 'checkbox';
+        newCheckbox.style.width = '20px';
+        div_1.appendChild(newCheckbox);
+
+        let div_8 = document.createElement('div');
+        div_8.classList.add('col-8');
+        div_8.classList.add('newToDoDiv');
+        div_8.innerText = todoInput.value;
+
+        let div_2 = document.createElement('div');
+        div_2.classList.add('col-2');
+
+        let btnDelete = document.createElement('button');
+        btnDelete.innerText = 'Delete';
+        div_2.appendChild(btnDelete);
         if (todoInput.value.length >= 88) {
             newDiv.style = 'overflow: scroll';
         }
-        newDiv.innerText = todoInput.value;
-        container.appendChild(newDiv);
+        localContainer.appendChild(row);
+        row.appendChild(div_1);
+        row.appendChild(div_8);
+        row.appendChild(div_2);
+        container.appendChild(localContainer);
         todoInput.value = '';
     }
     else {
@@ -24,23 +51,35 @@ todoInput.addEventListener('keydown', function (event) {
         let localContainer = document.createElement('div');
         localContainer.style.width = '80%';
         localContainer.classList.add('container');
+
         let row = document.createElement('div');
         row.classList.add('row');
 
-        let div_10 = document.createElement('div');
-        div_10.classList.add('col-10');
-        div_10.classList.add('newToDoDiv');
-        div_10.innerText = todoInput.value;
+        let div_1 = document.createElement('div');
+        div_1.classList.add('col-1');
+
+        let newCheckbox = document.createElement('input');
+        newCheckbox.type = 'checkbox';
+        newCheckbox.style.width = '20px';
+        div_1.appendChild(newCheckbox);
+
+        let div_8 = document.createElement('div');
+        div_8.classList.add('col-8');
+        div_8.classList.add('newToDoDiv');
+        div_8.innerText = todoInput.value;
+
         let div_2 = document.createElement('div');
         div_2.classList.add('col-2');
+
         let btnDelete = document.createElement('button');
         btnDelete.innerText = 'Delete';
-        div_2.innerText = btnDelete;
+        div_2.appendChild(btnDelete);
         if (todoInput.value.length >= 88) {
             newDiv.style = 'overflow: scroll';
         }
         localContainer.appendChild(row);
-        row.appendChild(div_10);
+        row.appendChild(div_1);
+        row.appendChild(div_8);
         row.appendChild(div_2);
         container.appendChild(localContainer);
         todoInput.value = '';

@@ -46,14 +46,14 @@ input {
     border-radius: 40px;
 }
 
-#add {
+button {
     height: 2.5rem;
-    border-radius: 15px;
-    margin-left: 20px;
+    border-radius: 25px;
+    margin-left: 30px;
     cursor: pointer;
 }
 
-#add:hover {
+button:hover {
     background-color: rgb(192, 192, 192);
 }
 
@@ -64,6 +64,7 @@ input {
     background-color: white;
     margin: 20px auto;
 }
+
 hr {
     margin: 40px 0;
 }
