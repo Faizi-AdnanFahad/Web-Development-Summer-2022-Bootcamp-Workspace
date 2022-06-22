@@ -25,6 +25,16 @@ addBTN.addEventListener('click', function () {
         div_8.classList.add('newToDoDiv');
         div_8.innerText = todoInput.value;
 
+        newCheckbox.addEventListener('click', function() {
+            if (newCheckbox.checked) {
+                div_8.style = 'text-decoration: line-through';
+            }
+            else {
+                div_8.style = 'none';
+
+            }
+        })
+
         let div_2 = document.createElement('div');
         div_2.classList.add('col-2');
 
@@ -63,10 +73,22 @@ todoInput.addEventListener('keydown', function (event) {
         newCheckbox.style.width = '20px';
         div_1.appendChild(newCheckbox);
 
+
         let div_8 = document.createElement('div');
         div_8.classList.add('col-8');
         div_8.classList.add('newToDoDiv');
         div_8.innerText = todoInput.value;
+
+        
+        newCheckbox.addEventListener('click', function() {
+            if (newCheckbox.checked) {
+                div_8.style = 'text-decoration: line-through';
+            }
+            else {
+                div_8.style = 'none';
+
+            }
+        })
 
         let div_2 = document.createElement('div');
         div_2.classList.add('col-2');
@@ -88,6 +110,9 @@ todoInput.addEventListener('keydown', function (event) {
         alert("Can not add empty todo task!")
     }
 });
+
+/* When checkbox is checked */
+
 
 // todoInput.addEventListener('keydown', function (event) {
 //     if (todoInput.value && event.key === 'Enter') {
