@@ -58,8 +58,6 @@ input {
 }
 
 .newToDoDiv {
-    padding-left: 20px;
-    padding-top: 20px;
     width: 30rem;
     height: 2.5rem;
     border-radius: 10px;
@@ -72,4 +70,9 @@ hr {
 
 .overflow {
     overflow: scroll;
+}
+
+.newToDoDivP {
+    padding-top: 10px;
+    padding-left: 10px;
 }
