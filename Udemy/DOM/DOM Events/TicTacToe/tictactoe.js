@@ -1,8 +1,10 @@
-let cells = [
+var cells = [
     [],
     [],
     []
 ];
+
+var winner = '';
 
 /* Initalizing the 2-d array to the list of divs */
 for (let i = 0; i < 3; i++) {
@@ -53,8 +55,6 @@ function checkForWinner() {
     return r1r2r3() || c1c2c3() || diagonal(); 
 }
 
-
-
 /* Condition 1: Checking all rows */
 function r1r2r3() {
     let winnerFound = false;
@@ -99,14 +99,25 @@ function diagonal() {
 }
 
 function conditionChecker(arr) {
-    return arr.every(function (element) {
+    let xCheck = arr.every(function (element) {
         return element.innerText === 'XXXXX';
-    })
-        ||
-        arr.every(function (element) {
+    });
+
+    let oCheck = arr.every(function (element) {
             return element.innerText === 'OOOOO';
         });
+
+    if (xCheck && !oCheck) {
+        winner = 'X';
+    }
+    else if (oCheck && !xCheck) {
+        winner = 'O';
+    }
+
+    return xCheck || oCheck;
 }
+
+
 
 // function diagonal() {
 //     let XXXXX = (cells[0][0].innerText === 'XXXXX' &&
