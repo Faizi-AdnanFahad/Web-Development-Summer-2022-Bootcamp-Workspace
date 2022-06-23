@@ -34,7 +34,7 @@ function performBackend() {
 
         }
     })
-
+    
     let div_2 = document.createElement('div');
     div_2.classList.add('col-2');
 
