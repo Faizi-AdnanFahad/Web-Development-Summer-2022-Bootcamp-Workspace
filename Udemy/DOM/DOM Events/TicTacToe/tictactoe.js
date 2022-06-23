@@ -14,6 +14,10 @@ for (let i = 0; i < 3; i++) {
     }
 }
 
+let xScore = document.querySelector("#scores div:first-child span");
+let oScore = document.querySelector("#scores div:last-child span");
+
+
 for (let i = 0; i < 3; i++) {
     for (let j = 0; j < 3; j++) {
         var playerTurn = 'X';
@@ -32,7 +36,16 @@ for (let i = 0; i < 3; i++) {
                             cells[i][j].innerText = 'OOOOO';
                             playerTurn = 'X';
                         }
-                        console.log(checkForWinner());
+                        
+                        let winnerExist = checkForWinner();
+                        if (winnerExist) {
+                            if (winner === 'X') {
+                                xScore.innerText = parseInt(xScore.innerText) + 1;
+                            }
+                            else {
+                                oScore.innerText = parseInt(oScore.innerText) + 1;
+                            }
+                        }
                     }
                     else if (!(cells[i][j].innerText === 'XXXXX' || cells[i][j].innerText === 'OOOOO') && evt === 'mouseenter') {
                         if (playerTurn === 'X') {
