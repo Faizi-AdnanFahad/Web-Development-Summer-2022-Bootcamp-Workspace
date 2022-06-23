@@ -91,3 +91,8 @@ h1 {
     font-weight: bold;
     color: white;
 }
+
+#resetBTN {
+    width: 10rem;
+    height: 3rem;
+}

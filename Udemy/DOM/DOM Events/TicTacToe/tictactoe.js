@@ -16,7 +16,7 @@ for (let i = 0; i < 3; i++) {
 
 let xScore = document.querySelector("#scores div:first-child span");
 let oScore = document.querySelector("#scores div:last-child span");
-
+let resetBTN = document.querySelector("#resetBTN");
 
 for (let i = 0; i < 3; i++) {
     for (let j = 0; j < 3; j++) {
@@ -63,6 +63,17 @@ for (let i = 0; i < 3; i++) {
         });
     }
 }
+
+resetBTN.addEventListener('click', function() {
+    for (let i = 0; i < 3; i++) {
+        for (let j = 0; j < 3; j++) {
+            cells[i][j].innerText = '';
+        }
+    }
+
+    xScore.innerText = '0';
+    oScore.innerText = '0';
+})
 
 function checkForWinner() {
     return r1r2r3() || c1c2c3() || diagonal(); 
