@@ -18,14 +18,19 @@ for (let i = 0; i < 3; i++) {
 
         ['mouseenter', 'mouseleave', 'click'].forEach(function (evt) {
             cells[i][j].addEventListener(evt, function () {
-                if (evt === 'click') {
-                    cells[i][j].innerText = 'XXXXX';
+                if (cells[i][j].innerText === 'XXXXX') {
+                    cells[i][j].style.cursor = 'not-allowed';
                 }
-                else if (cells[i][j].innerText !== 'XXXXX' && evt === 'mouseenter') {
-                    cells[i][j].innerText = 'X';
-                }
-                else if (cells[i][j].innerText !== 'XXXXX' && evt === 'mouseleave') {
-                    cells[i][j].innerText = '';
+                else {
+                    if (evt === 'click') {
+                        cells[i][j].innerText = 'XXXXX';
+                    }
+                    else if (cells[i][j].innerText !== 'XXXXX' && evt === 'mouseenter') {
+                        cells[i][j].innerText = 'X';
+                    }
+                    else if (cells[i][j].innerText !== 'XXXXX' && evt === 'mouseleave') {
+                        cells[i][j].innerText = '';
+                    }
                 }
             }, false);
         });
