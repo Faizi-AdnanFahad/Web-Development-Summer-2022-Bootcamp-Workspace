@@ -49,7 +49,7 @@ function performBackend() {
 
     /* Adds slider if the lenght of the todo is long */
     if (todoInput.value.length >= 50) {
-        div_8.style = 'overflow: scroll';
+        div_8.classList.add("overflow-auto");
     }
 
     localContainer.appendChild(row);
