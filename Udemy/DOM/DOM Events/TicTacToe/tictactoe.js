@@ -40,7 +40,7 @@ for (let i = 0; i < 3; i++) {
                             cells[i][j].innerText = 'O';
                         }
                     }
-                    else if (!(cells[i][j].innerText === 'XXXXX' || cells[i][j].innerText === 'OOOOO')  && evt === 'mouseleave') {
+                    else if (!(cells[i][j].innerText === 'XXXXX' || cells[i][j].innerText === 'OOOOO') && evt === 'mouseleave') {
                         cells[i][j].innerText = '';
                     }
                 }
@@ -50,90 +50,101 @@ for (let i = 0; i < 3; i++) {
 }
 
 function checkForWinner() {
+    return r1r2r3() || c1c2c3() || diagonal(); 
+}
+
+
+
+function c1c2c3() {
     let winnerFound = false;
-    let columnArr = [];
-    for (let row = 0; !winnerFound && row < 3; row++) {
-        for (let column = 0; !winnerFound && column < 3; column++) {
-            winnerFound = r1r2r3(row);
-            columnArr.push(cells[column][row]);
+    let columns = [];
+    for (let row = 0;!winnerFound && row < 3; row ++) {
+        for (let column = 0; !winnerFound && column < 3; column ++) {
+            columns.push(cells[column][row]);
         }
-        if (!winnerFound) {
-            winnerFound = c1c2c3();
-        }
-        else {
-            break;
-        }
-
-        if (!winnerFound) {
-            winnerFound = diagonal();
-        }
-        else {
-            break;
-        }
+        winnerFound = c1c2c3Helper(columns);
+        columns = [];
     }
-
-    // return cells[0][0].innerText === 'XXXXX' && 
-    //         cells[0][1].innerText === 'XXXXX' && cells[0][2].innerText === 'XXXXX';
     return winnerFound;
 }
 
-/* Condition 1: Checking all rows */
-function r1r2r3(row) {
-    return cells[row].every(function(element) {
+function c1c2c3Helper(columns) {
+    return columns.every(function (element) {
         return element.innerText === 'XXXXX';
     })
-    ||
-    cells[row].every(function(element) {
-        return element.innerText === 'OOOOO';
-    });
+        ||
+        columns.every(function (element) {
+            return element.innerText === 'OOOOO';
+        });
 }
 
-function c1c2c3() {
-    let XXXXX = (cells[0][0].innerText === 'XXXXX' && 
-     cells[1][0].innerText === 'XXXXX' && 
-     cells[2][0].innerText === 'XXXXX')
-    ||
-    (cells[0][1].innerText === 'XXXXX' && 
-     cells[1][1].innerText === 'XXXXX' && 
-     cells[2][1].innerText === 'XXXXX')
-     ||
-     (cells[0][2].innerText === 'XXXXX' && 
-      cells[1][2].innerText === 'XXXXX' && 
-      cells[2][2].innerText === 'XXXXX');
-
-      let OOOOO = (cells[0][0].innerText === 'OOOOO' && 
-     cells[1][0].innerText === 'OOOOO' && 
-     cells[2][0].innerText === 'OOOOO')
-    ||
-    (cells[0][1].innerText === 'OOOOO' && 
-     cells[1][1].innerText === 'OOOOO' && 
-     cells[2][1].innerText === 'OOOOO')
-     ||
-     (cells[0][2].innerText === 'OOOOO' && 
-      cells[1][2].innerText === 'OOOOO' && 
-      cells[2][2].innerText === 'OOOOO');
-
-      return XXXXX || OOOOO;
+/* Condition 1: Checking all rows */
+function r1r2r3() {
+    let winnerFound = false;
+    for (let row = 0; !winnerFound && row < 3; row++) {
+        for (let column = 0; !winnerFound && column < 3; column++) {
+            winnerFound = r1r2r3Helper(row);
+        }
+    }
+    return winnerFound;
 }
+
+function r1r2r3Helper(row) {
+    return cells[row].every(function (element) {
+        return element.innerText === 'XXXXX';
+    })
+        ||
+        cells[row].every(function (element) {
+            return element.innerText === 'OOOOO';
+        });
+}
+
+// function c1c2c3() {
+//     let XXXXX = (cells[0][0].innerText === 'XXXXX' &&
+//         cells[1][0].innerText === 'XXXXX' &&
+//         cells[2][0].innerText === 'XXXXX')
+//         ||
+//         (cells[0][1].innerText === 'XXXXX' &&
+//             cells[1][1].innerText === 'XXXXX' &&
+//             cells[2][1].innerText === 'XXXXX')
+//         ||
+//         (cells[0][2].innerText === 'XXXXX' &&
+//             cells[1][2].innerText === 'XXXXX' &&
+//             cells[2][2].innerText === 'XXXXX');
+
+//     let OOOOO = (cells[0][0].innerText === 'OOOOO' &&
+//         cells[1][0].innerText === 'OOOOO' &&
+//         cells[2][0].innerText === 'OOOOO')
+//         ||
+//         (cells[0][1].innerText === 'OOOOO' &&
+//             cells[1][1].innerText === 'OOOOO' &&
+//             cells[2][1].innerText === 'OOOOO')
+//         ||
+//         (cells[0][2].innerText === 'OOOOO' &&
+//             cells[1][2].innerText === 'OOOOO' &&
+//             cells[2][2].innerText === 'OOOOO');
+
+//     return XXXXX || OOOOO;
+// }
 
 function diagonal() {
-    let XXXXX = (cells[0][0].innerText === 'XXXXX' && 
-     cells[1][1].innerText === 'XXXXX' && 
-     cells[2][2].innerText === 'XXXXX')
-    ||
-    (cells[0][2].innerText === 'XXXXX' && 
-     cells[1][1].innerText === 'XXXXX' && 
-     cells[2][0].innerText === 'XXXXX');
+    let XXXXX = (cells[0][0].innerText === 'XXXXX' &&
+        cells[1][1].innerText === 'XXXXX' &&
+        cells[2][2].innerText === 'XXXXX')
+        ||
+        (cells[0][2].innerText === 'XXXXX' &&
+            cells[1][1].innerText === 'XXXXX' &&
+            cells[2][0].innerText === 'XXXXX');
 
-    let OOOOO = (cells[0][0].innerText === 'OOOOO' && 
-    cells[1][1].innerText === 'OOOOO' && 
-    cells[2][2].innerText === 'OOOOO')
-   ||
-   (cells[0][2].innerText === 'OOOOO' && 
-    cells[1][1].innerText === 'OOOOO' && 
-    cells[2][0].innerText === 'OOOOO');
+    let OOOOO = (cells[0][0].innerText === 'OOOOO' &&
+        cells[1][1].innerText === 'OOOOO' &&
+        cells[2][2].innerText === 'OOOOO')
+        ||
+        (cells[0][2].innerText === 'OOOOO' &&
+            cells[1][1].innerText === 'OOOOO' &&
+            cells[2][0].innerText === 'OOOOO');
 
-      return XXXXX || OOOOO;
+    return XXXXX || OOOOO;
 }
 
 // function c1c2c3(columnArr) {
