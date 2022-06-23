@@ -80,25 +80,22 @@ function c1c2c3() {
     return winnerFound;
 }
 
-
+/* Diagonal Condition checking */
 function diagonal() {
-    let XXXXX = (cells[0][0].innerText === 'XXXXX' &&
-        cells[1][1].innerText === 'XXXXX' &&
-        cells[2][2].innerText === 'XXXXX')
-        ||
-        (cells[0][2].innerText === 'XXXXX' &&
-            cells[1][1].innerText === 'XXXXX' &&
-            cells[2][0].innerText === 'XXXXX');
 
-    let OOOOO = (cells[0][0].innerText === 'OOOOO' &&
-        cells[1][1].innerText === 'OOOOO' &&
-        cells[2][2].innerText === 'OOOOO')
-        ||
-        (cells[0][2].innerText === 'OOOOO' &&
-            cells[1][1].innerText === 'OOOOO' &&
-            cells[2][0].innerText === 'OOOOO');
+    let diagonalArr = [];
+    for (let d = 0; d < 3; d ++) {
+        diagonalArr.push(cells[d][d]);
+    }
+    let rightDiagonalCondition = conditionChecker(diagonalArr);
+    
+    diagonalArr = [];
+    for (let d = 0; d < 3; d ++) {
+        diagonalArr.push(cells[d][2 - d]);
+    }
+    let leftDiagonalCondition = conditionChecker(diagonalArr);
 
-    return XXXXX || OOOOO;
+    return rightDiagonalCondition || leftDiagonalCondition;
 }
 
 function conditionChecker(arr) {
