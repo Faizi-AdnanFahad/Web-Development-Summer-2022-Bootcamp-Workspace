@@ -61,14 +61,14 @@ for (let i = 0; i < 3; i++) {
                             }
                             darkenTheBackground();
                             restartTheGame();
-                            addWinnerBanner(winner, false);
+                            addGameStatus(winner, false);
                         }
                         
                         let drawExist = checkForDraw(winnerExist);
                         if (drawExist) {
                             darkenTheBackground();
                             restartTheGame();
-                            addWinnerBanner('DRAW!', true);
+                            addGameStatus('DRAW!', true);
                         }
 
                         cells[i][j].style.color = 'yellow';
@@ -135,24 +135,25 @@ function restartTheGame() {
     })
 }
 
-function addWinnerBanner(winner, drawExist) {
-    let winnerDiv = document.createElement('div');
-    winnerDiv.id = 'winnerDiv';
-    winnerDiv.style.width = '300px';
-    winnerDiv.style.height = '100px';
-    winnerDiv.style.backgroundColor = 'white';
-    winnerDiv.style.color = 'black';
-    winnerDiv.style.zIndex = '2';
-    winnerDiv.style.position = 'absolute';
+function addGameStatus(winner, drawExist) {
+    let gameStatusDiv = document.createElement('div');
+    gameStatusDiv.id = 'winnerDiv';
+    gameStatusDiv.style.fontSize = '3rem';
+    gameStatusDiv.style.width = '300px';
+    gameStatusDiv.style.height = '100px';
+    gameStatusDiv.style.backgroundColor = 'white';
+    gameStatusDiv.style.color = 'black';
+    gameStatusDiv.style.zIndex = '2';
+    gameStatusDiv.style.position = 'absolute';
     if (drawExist) {
-        winnerDiv.innerText = winner;
+        gameStatusDiv.innerText = winner;
     }
     else {
-        winnerDiv.innerText = `${winner} WON!`;
+        gameStatusDiv.innerText = `${winner} WON!`;
     }
 
     let firstRow = document.querySelector('#container #row:nth-of-type(1)');
-    firstRow.appendChild(winnerDiv);
+    firstRow.appendChild(gameStatusDiv);
 }
 
 /* Resets the game */
@@ -238,73 +239,3 @@ function conditionChecker(arr) {
 
     return xCheck || oCheck;
 }
-
-
-
-// function diagonal() {
-//     let XXXXX = (cells[0][0].innerText === 'XXXXX' &&
-//         cells[1][1].innerText === 'XXXXX' &&
-//         cells[2][2].innerText === 'XXXXX')
-//         ||
-//         (cells[0][2].innerText === 'XXXXX' &&
-//             cells[1][1].innerText === 'XXXXX' &&
-//             cells[2][0].innerText === 'XXXXX');
-
-//     let OOOOO = (cells[0][0].innerText === 'OOOOO' &&
-//         cells[1][1].innerText === 'OOOOO' &&
-//         cells[2][2].innerText === 'OOOOO')
-//         ||
-//         (cells[0][2].innerText === 'OOOOO' &&
-//             cells[1][1].innerText === 'OOOOO' &&
-//             cells[2][0].innerText === 'OOOOO');
-
-//     return XXXXX || OOOOO;
-// }
-// function c1c2c3Helper(columns) {
-//     return columns.every(function (element) {
-//         return element.innerText === 'XXXXX';
-//     })
-//         ||
-//         columns.every(function (element) {
-//             return element.innerText === 'OOOOO';
-//         });
-// }
-
-// function c1c2c3() {
-//     let XXXXX = (cells[0][0].innerText === 'XXXXX' &&
-//         cells[1][0].innerText === 'XXXXX' &&
-//         cells[2][0].innerText === 'XXXXX')
-//         ||
-//         (cells[0][1].innerText === 'XXXXX' &&
-//             cells[1][1].innerText === 'XXXXX' &&
-//             cells[2][1].innerText === 'XXXXX')
-//         ||
-//         (cells[0][2].innerText === 'XXXXX' &&
-//             cells[1][2].innerText === 'XXXXX' &&
-//             cells[2][2].innerText === 'XXXXX');
-
-//     let OOOOO = (cells[0][0].innerText === 'OOOOO' &&
-//         cells[1][0].innerText === 'OOOOO' &&
-//         cells[2][0].innerText === 'OOOOO')
-//         ||
-//         (cells[0][1].innerText === 'OOOOO' &&
-//             cells[1][1].innerText === 'OOOOO' &&
-//             cells[2][1].innerText === 'OOOOO')
-//         ||
-//         (cells[0][2].innerText === 'OOOOO' &&
-//             cells[1][2].innerText === 'OOOOO' &&
-//             cells[2][2].innerText === 'OOOOO');
-
-//     return XXXXX || OOOOO;
-// }
-
-
-// function c1c2c3(columnArr) {
-//     return columnArr.every(function(element) {
-//         return element.innerText === 'XXXXX';
-//     })
-//     ||
-//     columnArr.every(function(element) {
-//         return element.innerText === 'OOOOO';
-//     });
-// }
