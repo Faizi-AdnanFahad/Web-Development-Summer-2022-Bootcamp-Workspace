@@ -33,17 +33,17 @@ for (let i = 0; i < 3; i++) {
         var playerTurn = 'X';
         ['mouseenter', 'mouseleave', 'click'].forEach(function (evt) {
             cells[i][j].addEventListener(evt, function () {
-                if (cells[i][j].innerText === 'XXXXX' || cells[i][j].innerText === 'OOOOO') {
+                if (cells[i][j].innerText === 'X' || cells[i][j].innerText === 'O') {
                     cells[i][j].style.cursor = 'not-allowed';
                 }
                 else {
                     if (evt === 'click') {
                         if (playerTurn === 'X') {
-                            cells[i][j].innerText = 'XXXXX';
+                            cells[i][j].innerText = 'X';
                             playerTurn = 'O';
                         }
                         else {
-                            cells[i][j].innerText = 'OOOOO';
+                            cells[i][j].innerText = 'O';
                             playerTurn = 'X';
                         }
                         
@@ -60,15 +60,15 @@ for (let i = 0; i < 3; i++) {
                             }
                         }
                     }
-                    else if (!(cells[i][j].innerText === 'XXXXX' || cells[i][j].innerText === 'OOOOO') && evt === 'mouseenter') {
+                    else if (!(cells[i][j].innerText === 'X' || cells[i][j].innerText === 'O') && evt === 'mouseenter') {
                         if (playerTurn === 'X') {
-                            cells[i][j].append(xIcon);
+                            cells[i][j].innerText = 'x';
                         }
                         else {
-                            cells[i][j].append(oIcon);
+                            cells[i][j].innerText = 'o';
                         }
                     }
-                    else if (!(cells[i][j].innerText === 'XXXXX' || cells[i][j].innerText === 'OOOOO') && evt === 'mouseleave') {
+                    else if (!(cells[i][j].innerText === 'X' || cells[i][j].innerText === 'O') && evt === 'mouseleave') {
                         cells[i][j].innerText = '';
                     }
                 }
@@ -140,11 +140,11 @@ function diagonal() {
 
 function conditionChecker(arr) {
     let xCheck = arr.every(function (element) {
-        return element.innerText === 'XXXXX';
+        return element.innerText === 'X';
     });
 
     let oCheck = arr.every(function (element) {
-            return element.innerText === 'OOOOO';
+            return element.innerText === 'O';
         });
 
     if (xCheck && !oCheck) {
