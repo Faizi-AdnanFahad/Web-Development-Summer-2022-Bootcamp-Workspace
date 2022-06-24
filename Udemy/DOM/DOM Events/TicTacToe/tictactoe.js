@@ -39,6 +39,7 @@ for (let i = 0; i < 3; i++) {
                         if (playerTurn === 'X') {
                             cells[i][j].innerText = 'X';
                             playerTurn = 'O';
+                            cells[i][j].style.fontFamily = "font-family: 'Fascinate', cursive;";
                         }
                         else {
                             cells[i][j].innerText = 'O';
