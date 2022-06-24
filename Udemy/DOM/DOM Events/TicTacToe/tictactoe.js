@@ -16,6 +16,8 @@ for (let i = 0; i < 3; i++) {
 
 /* X Icon */
 
+// let c = document.querySelector('#container #row:nth-of-type(2) div:nth-of-type(2)')
+
 // let xIcon = document.createElement('img');
 // xIcon.src = 'https://cdn-icons.flaticon.com/png/512/800/premium/800878.png?token=exp=1656030949~hmac=585b3c0fe98256c82fafcb73556665f7';
 // xIcon.classList.add('imgIcon');
@@ -37,7 +39,7 @@ for (let i = 0; i < 3; i++) {
                     cells[i][j].style.cursor = 'not-allowed';
                 }
                 else {
-                    if (evt === 'click') {
+                    if (cells[i][j].childNodes.length <= 1 && evt === 'click') {
                         if (playerTurn === 'X') {
                             cells[i][j].innerText = 'X';
                             playerTurn = 'O';
@@ -60,10 +62,22 @@ for (let i = 0; i < 3; i++) {
                             }
                             darkenTheBackground();
 
+                            let restardBTN = document.createElement('button');
+                            restardBTN.innerText = 'Restart';
+                            cells[1][1].appendChild(restardBTN);
+                            restardBTN.style.width = '10rem';
+                            restardBTN.style.fontSize = '1rem';
+                            restardBTN.style.height = '3rem';
+                            restardBTN.style.position = 'absolute';
+                            restardBTN.style.zIndex = '2';
+                            restardBTN.addEventListener('click', function() {
+                                console.log("RESTATRTTT");
+                            })
+
                             // As soon as a winner exists, stop the game and force them to restart the game
                         }
                     }
-                    else if (!(cells[i][j].innerText === 'X' || cells[i][j].innerText === 'O') && evt === 'mouseenter') {
+                    else if (cells[i][j].childNodes.length <= 1 && !(cells[i][j].innerText === 'X' || cells[i][j].innerText === 'O') && evt === 'mouseenter') {
                         if (playerTurn === 'X') {
                             cells[i][j].innerText = 'x';
                         }
@@ -71,7 +85,7 @@ for (let i = 0; i < 3; i++) {
                             cells[i][j].innerText = 'o';
                         }
                     }
-                    else if (!(cells[i][j].innerText === 'X' || cells[i][j].innerText === 'O') && evt === 'mouseleave') {
+                    else if (cells[i][j].childNodes.length <= 1 && !(cells[i][j].innerText === 'X' || cells[i][j].innerText === 'O') && evt === 'mouseleave') {
                         cells[i][j].innerText = '';
                     }
                 }
@@ -85,7 +99,7 @@ function darkenTheBackground() {
     restardWindow.style.width = '100%';
     restardWindow.style.height = '105vh';
     restardWindow.style.backgroundColor = 'black';
-    restardWindow.style.opacity = '0.3';
+    restardWindow.style.opacity = '0.5';
     document.body.appendChild(restardWindow);
     restardWindow.style.position = 'absolute';
     restardWindow.style.top = '0';
