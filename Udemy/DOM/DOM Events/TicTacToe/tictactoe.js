@@ -61,18 +61,8 @@ for (let i = 0; i < 3; i++) {
                                 oScore.innerText = parseInt(oScore.innerText) + 1;
                             }
                             darkenTheBackground();
+                            restartTheGame();
 
-                            let restardBTN = document.createElement('button');
-                            restardBTN.innerText = 'Restart';
-                            cells[1][1].appendChild(restardBTN);
-                            restardBTN.style.width = '10rem';
-                            restardBTN.style.fontSize = '1rem';
-                            restardBTN.style.height = '3rem';
-                            restardBTN.style.position = 'absolute';
-                            restardBTN.style.zIndex = '2';
-                            restardBTN.addEventListener('click', function() {
-                                console.log("RESTATRTTT");
-                            })
 
                             // As soon as a winner exists, stop the game and force them to restart the game
                         }
@@ -96,6 +86,7 @@ for (let i = 0; i < 3; i++) {
 
 function darkenTheBackground() {
     let restardWindow = document.createElement('div');
+    restardWindow.id = 'restartWindow';
     restardWindow.style.width = '100%';
     restardWindow.style.height = '105vh';
     restardWindow.style.backgroundColor = 'black';
@@ -105,19 +96,40 @@ function darkenTheBackground() {
     restardWindow.style.top = '0';
 }
 
+/* Restart the game */
+function restartTheGame() {
+    let restardBTN = document.createElement('button');
+    restardBTN.innerText = 'Restart';
+    cells[1][1].appendChild(restardBTN);
+    restardBTN.style.width = '10rem';
+    restardBTN.style.fontSize = '1rem';
+    restardBTN.style.height = '3rem';
+    restardBTN.style.position = 'absolute';
+    restardBTN.style.zIndex = '2';
+    restardBTN.addEventListener('click', function (event) {
+        let restardWindow = document.querySelector('#restartWindow');
+        restardWindow.remove();
+        restardBTN.remove();
+        resetTheTable();
+        event.stopPropagation();
+    })
+}
+
 /* Resets the game */
 resetBTN.addEventListener('click', function () {
+    resetTheTable();
+    xScore.innerText = '0';
+    oScore.innerText = '0';
+})
+
+function resetTheTable() {
     for (let i = 0; i < 3; i++) {
         for (let j = 0; j < 3; j++) {
             cells[i][j].innerText = '';
             cells[i][j].style.cursor = '';
         }
     }
-
-    xScore.innerText = '0';
-    oScore.innerText = '0';
-
-})
+}
 
 function checkForWinner() {
     return r1r2r3() || c1c2c3() || diagonal();
