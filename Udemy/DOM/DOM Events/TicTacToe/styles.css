@@ -119,6 +119,6 @@ h1 {
     border-radius: 20px;
 }
 
-#resetBTN:hover {
+button:hover {
     background-color: yellow;
 }
