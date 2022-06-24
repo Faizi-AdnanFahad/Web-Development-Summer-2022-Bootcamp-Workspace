@@ -39,14 +39,14 @@ for (let i = 0; i < 3; i++) {
                         if (playerTurn === 'X') {
                             cells[i][j].innerText = 'X';
                             playerTurn = 'O';
-                            cells[i][j].style.fontFamily = "font-family: 'Fascinate', cursive;";
+                            cells[i][j].style.color = '#eb1751';
                         }
                         else {
                             cells[i][j].innerText = 'O';
                             playerTurn = 'X';
                             cells[i][j].style.color = '#fed050';
                         }
-
+                        cells[i][j].style.fontFamily = 'Fascinate';
                         let winnerExist = checkForWinner();
                         if (winnerExist) {
                             if (winner === 'X') {
@@ -72,12 +72,13 @@ for (let i = 0; i < 3; i++) {
                     else if (cellOnlyHaveText && !cellOccupied && evt === 'mouseenter') {
                         if (playerTurn === 'X') {
                             cells[i][j].innerText = 'x';
-                            cells[i][j].style.color = '#eb1751';
+                            cells[i][j].style.color = '#da4970';
                         }
                         else {
                             cells[i][j].innerText = 'o';
                             cells[i][j].style.color = '#ebce7f';
                         }
+                        cells[i][j].style.fontFamily = 'Fascinate';
                     }
                     else if (cellOnlyHaveText && !cellOccupied && evt === 'mouseleave') {
                         cells[i][j].innerText = '';
@@ -107,13 +108,15 @@ function darkenTheBackground() {
 /* Restart the game */
 function restartTheGame() {
     let restardBTN = document.createElement('button');
-    restardBTN.innerText = 'Restart';
+    restardBTN.innerText = 'RESTART';
     cells[1][1].appendChild(restardBTN);
     restardBTN.style.width = '10rem';
     restardBTN.style.fontSize = '1rem';
     restardBTN.style.height = '3rem';
     restardBTN.style.position = 'absolute';
     restardBTN.style.zIndex = '2';
+    restardBTN.style.fontFamily = "Arial, Helvetica, sans-serif";
+    restardBTN.style.fontWeight = 800;
 
     restardBTN.addEventListener('click', function (event) {
         /* Removes the winner banner */
