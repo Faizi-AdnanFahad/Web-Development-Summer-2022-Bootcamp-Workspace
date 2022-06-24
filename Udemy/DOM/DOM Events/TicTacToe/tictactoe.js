@@ -16,13 +16,13 @@ for (let i = 0; i < 3; i++) {
 
 /* X Icon */
 
-let xIcon = document.createElement('img');
-xIcon.src = 'https://cdn-icons.flaticon.com/png/512/800/premium/800878.png?token=exp=1656030949~hmac=585b3c0fe98256c82fafcb73556665f7';
-xIcon.classList.add('imgIcon');
+// let xIcon = document.createElement('img');
+// xIcon.src = 'https://cdn-icons.flaticon.com/png/512/800/premium/800878.png?token=exp=1656030949~hmac=585b3c0fe98256c82fafcb73556665f7';
+// xIcon.classList.add('imgIcon');
 
-let oIcon = document.createElement('img');
-oIcon.src = 'https://cdn-icons.flaticon.com/png/512/3524/premium/3524377.png?token=exp=1656031418~hmac=f3565d91565e40ff7d13ae1c6109e249';
-oIcon.classList.add('imgIcon');
+// let oIcon = document.createElement('img');
+// oIcon.src = 'https://cdn-icons.flaticon.com/png/512/3524/premium/3524377.png?token=exp=1656031418~hmac=f3565d91565e40ff7d13ae1c6109e249';
+// oIcon.classList.add('imgIcon');
 
 let xScore = document.querySelector("#scores div:first-child span");
 let oScore = document.querySelector("#scores div:last-child span");
@@ -46,7 +46,7 @@ for (let i = 0; i < 3; i++) {
                             cells[i][j].innerText = 'O';
                             playerTurn = 'X';
                         }
-                        
+
                         let winnerExist = checkForWinner();
                         if (winnerExist) {
                             if (winner === 'X') {
@@ -58,6 +58,7 @@ for (let i = 0; i < 3; i++) {
                             else {
                                 oScore.innerText = parseInt(oScore.innerText) + 1;
                             }
+                            darkenTheBackground();
 
                             // As soon as a winner exists, stop the game and force them to restart the game
                         }
@@ -79,8 +80,19 @@ for (let i = 0; i < 3; i++) {
     }
 }
 
+function darkenTheBackground() {
+    let restardWindow = document.createElement('div');
+    restardWindow.style.width = '100%';
+    restardWindow.style.height = '105vh';
+    restardWindow.style.backgroundColor = 'black';
+    restardWindow.style.opacity = '0.3';
+    document.body.appendChild(restardWindow);
+    restardWindow.style.position = 'absolute';
+    restardWindow.style.top = '0';
+}
+
 /* Resets the game */
-resetBTN.addEventListener('click', function() {
+resetBTN.addEventListener('click', function () {
     for (let i = 0; i < 3; i++) {
         for (let j = 0; j < 3; j++) {
             cells[i][j].innerText = '';
@@ -94,7 +106,7 @@ resetBTN.addEventListener('click', function() {
 })
 
 function checkForWinner() {
-    return r1r2r3() || c1c2c3() || diagonal(); 
+    return r1r2r3() || c1c2c3() || diagonal();
 }
 
 /* Condition 1: Checking all rows */
@@ -112,8 +124,8 @@ function r1r2r3() {
 function c1c2c3() {
     let winnerFound = false;
     let columns = [];
-    for (let row = 0;!winnerFound && row < 3; row ++) {
-        for (let column = 0; !winnerFound && column < 3; column ++) {
+    for (let row = 0; !winnerFound && row < 3; row++) {
+        for (let column = 0; !winnerFound && column < 3; column++) {
             columns.push(cells[column][row]);
         }
         winnerFound = conditionChecker(columns);
@@ -126,13 +138,13 @@ function c1c2c3() {
 function diagonal() {
 
     let diagonalArr = [];
-    for (let d = 0; d < 3; d ++) {
+    for (let d = 0; d < 3; d++) {
         diagonalArr.push(cells[d][d]);
     }
     let rightDiagonalCondition = conditionChecker(diagonalArr);
-    
+
     diagonalArr = [];
-    for (let d = 0; d < 3; d ++) {
+    for (let d = 0; d < 3; d++) {
         diagonalArr.push(cells[d][2 - d]);
     }
     let leftDiagonalCondition = conditionChecker(diagonalArr);
@@ -146,8 +158,8 @@ function conditionChecker(arr) {
     });
 
     let oCheck = arr.every(function (element) {
-            return element.innerText === 'O';
-        });
+        return element.innerText === 'O';
+    });
 
     if (xCheck && !oCheck) {
         winner = 'X';
