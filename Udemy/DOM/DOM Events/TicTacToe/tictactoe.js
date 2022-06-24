@@ -14,6 +14,16 @@ for (let i = 0; i < 3; i++) {
     }
 }
 
+/* X Icon */
+
+let xIcon = document.createElement('img');
+xIcon.src = 'https://cdn-icons.flaticon.com/png/512/800/premium/800878.png?token=exp=1656030949~hmac=585b3c0fe98256c82fafcb73556665f7';
+xIcon.classList.add('imgIcon');
+
+let oIcon = document.createElement('img');
+oIcon.src = 'https://cdn-icons.flaticon.com/png/512/3524/premium/3524377.png?token=exp=1656031418~hmac=f3565d91565e40ff7d13ae1c6109e249';
+oIcon.classList.add('imgIcon');
+
 let xScore = document.querySelector("#scores div:first-child span");
 let oScore = document.querySelector("#scores div:last-child span");
 let resetBTN = document.querySelector("#resetBTN");
@@ -41,6 +51,9 @@ for (let i = 0; i < 3; i++) {
                         if (winnerExist) {
                             if (winner === 'X') {
                                 xScore.innerText = parseInt(xScore.innerText) + 1;
+                                // let p = document.createElement('p');
+                                // p.innerText = 'X WINS!';
+                                // document.body.append(p);
                             }
                             else {
                                 oScore.innerText = parseInt(oScore.innerText) + 1;
@@ -49,10 +62,10 @@ for (let i = 0; i < 3; i++) {
                     }
                     else if (!(cells[i][j].innerText === 'XXXXX' || cells[i][j].innerText === 'OOOOO') && evt === 'mouseenter') {
                         if (playerTurn === 'X') {
-                            cells[i][j].innerText = 'X';
+                            cells[i][j].append(xIcon);
                         }
                         else {
-                            cells[i][j].innerText = 'O';
+                            cells[i][j].append(oIcon);
                         }
                     }
                     else if (!(cells[i][j].innerText === 'XXXXX' || cells[i][j].innerText === 'OOOOO') && evt === 'mouseleave') {
@@ -64,6 +77,7 @@ for (let i = 0; i < 3; i++) {
     }
 }
 
+/* Resets the game */
 resetBTN.addEventListener('click', function() {
     for (let i = 0; i < 3; i++) {
         for (let j = 0; j < 3; j++) {
