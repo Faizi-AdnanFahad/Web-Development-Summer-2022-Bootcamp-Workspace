@@ -110,16 +110,10 @@ function restartTheGame() {
     let restardBTN = document.createElement('button');
     restardBTN.innerText = 'RESTART';
     cells[1][1].appendChild(restardBTN);
-    restardBTN.style.width = '10rem';
-    restardBTN.style.fontSize = '1rem';
-    restardBTN.style.height = '3rem';
     restardBTN.style.position = 'absolute';
     restardBTN.style.zIndex = '2';
-    restardBTN.style.fontFamily = "Arial, Helvetica, sans-serif";
-    restardBTN.style.fontWeight = 800;
-    restardBTN.style.borderRadius = '20px';
     restardBTN.style.boxShadow = '1px 1px 15px #ebce7f';
-    restardBTN.style.border = 'none';
+    restardBTN.classList.add("buttonStyling");
 
     restardBTN.addEventListener('click', function (event) {
         /* Removes the winner banner */
