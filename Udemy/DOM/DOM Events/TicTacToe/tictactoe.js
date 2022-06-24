@@ -61,21 +61,15 @@ for (let i = 0; i < 3; i++) {
                             }
                             darkenTheBackground();
                             restartTheGame();
-                            addWinnerBanner();
+                            addWinnerBanner(winner, false);
                         }
-                        /**********************/
-                        let draw = true;
-                        for (let i = 0;!draw && i < 3; i++) {
-                            for (let j = 0;!draw && j < 3; j++) {
-                                draw = cells[i][j].innerText === 'X'
-                                    ||
-                                       cells[i][j].innerText === 'O';
-                            }
-                        }
-                        // console.log(!winnerExist && draw);
+                        
                         let drawExist = checkForDraw(winnerExist);
-
-                        /**********************/
+                        if (drawExist) {
+                            darkenTheBackground();
+                            restartTheGame();
+                            addWinnerBanner('DRAW!', true);
+                        }
 
                         cells[i][j].style.color = 'yellow';
                     }
@@ -141,7 +135,7 @@ function restartTheGame() {
     })
 }
 
-function addWinnerBanner() {
+function addWinnerBanner(winner, drawExist) {
     let winnerDiv = document.createElement('div');
     winnerDiv.id = 'winnerDiv';
     winnerDiv.style.width = '300px';
@@ -150,12 +144,13 @@ function addWinnerBanner() {
     winnerDiv.style.color = 'black';
     winnerDiv.style.zIndex = '2';
     winnerDiv.style.position = 'absolute';
-    if (winner === 'X') {
-        winnerDiv.innerText = 'X WON!'
+    if (drawExist) {
+        winnerDiv.innerText = winner;
     }
     else {
-        winnerDiv.innerText = 'O WON!'
+        winnerDiv.innerText = `${winner} WON!`;
     }
+
     let firstRow = document.querySelector('#container #row:nth-of-type(1)');
     firstRow.appendChild(winnerDiv);
 }
