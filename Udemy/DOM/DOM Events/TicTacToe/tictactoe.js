@@ -58,6 +58,8 @@ for (let i = 0; i < 3; i++) {
                             else {
                                 oScore.innerText = parseInt(oScore.innerText) + 1;
                             }
+
+                            // As soon as a winner exists, stop the game and force them to restart the game
                         }
                     }
                     else if (!(cells[i][j].innerText === 'X' || cells[i][j].innerText === 'O') && evt === 'mouseenter') {
