@@ -39,7 +39,8 @@ for (let i = 0; i < 3; i++) {
                     cells[i][j].style.cursor = 'not-allowed';
                 }
                 else {
-                    if (cells[i][j].childNodes.length <= 1 && evt === 'click') {
+                    let cellOnlyHaveText = cells[i][j].childNodes.length <= 1;
+                    if (cellOnlyHaveText && evt === 'click') {
                         if (playerTurn === 'X') {
                             cells[i][j].innerText = 'X';
                             playerTurn = 'O';
@@ -53,21 +54,17 @@ for (let i = 0; i < 3; i++) {
                         if (winnerExist) {
                             if (winner === 'X') {
                                 xScore.innerText = parseInt(xScore.innerText) + 1;
-                                // let p = document.createElement('p');
-                                // p.innerText = 'X WINS!';
-                                // document.body.append(p);
                             }
                             else {
                                 oScore.innerText = parseInt(oScore.innerText) + 1;
                             }
                             darkenTheBackground();
                             restartTheGame();
-
-
-                            // As soon as a winner exists, stop the game and force them to restart the game
+                            addWinnerBanner();
+                            
                         }
                     }
-                    else if (cells[i][j].childNodes.length <= 1 && !(cells[i][j].innerText === 'X' || cells[i][j].innerText === 'O') && evt === 'mouseenter') {
+                    else if (cellOnlyHaveText && !(cells[i][j].innerText === 'X' || cells[i][j].innerText === 'O') && evt === 'mouseenter') {
                         if (playerTurn === 'X') {
                             cells[i][j].innerText = 'x';
                         }
@@ -75,7 +72,7 @@ for (let i = 0; i < 3; i++) {
                             cells[i][j].innerText = 'o';
                         }
                     }
-                    else if (cells[i][j].childNodes.length <= 1 && !(cells[i][j].innerText === 'X' || cells[i][j].innerText === 'O') && evt === 'mouseleave') {
+                    else if (cellOnlyHaveText && !(cells[i][j].innerText === 'X' || cells[i][j].innerText === 'O') && evt === 'mouseleave') {
                         cells[i][j].innerText = '';
                     }
                 }
@@ -107,22 +104,51 @@ function restartTheGame() {
     restardBTN.style.position = 'absolute';
     restardBTN.style.zIndex = '2';
     restardBTN.addEventListener('click', function (event) {
+    
+        /* Removes the winner banner */
+        let winnerDiv = document.querySelector('#winnerDiv');
+        winnerDiv.remove();
+
+        /* Removes the dark background */
         let restardWindow = document.querySelector('#restartWindow');
         restardWindow.remove();
+
+        /* Removes the resart button */
         restardBTN.remove();
-        resetTheTable();
-        event.stopPropagation();
+
+        resetTheTableContent();
+        event.stopPropagation(); /* Since there are two elements in the middle div in the table, this allows the click to only function for the restart button and not for the click to create a new elment inside of it.*/
     })
+}
+
+function addWinnerBanner() {
+    let winnerDiv = document.createElement('div');
+    winnerDiv.id = 'winnerDiv';
+    winnerDiv.style.width = '300px';
+    winnerDiv.style.height = '100px';
+    winnerDiv.style.backgroundColor = 'white';
+    winnerDiv.style.color = 'black';
+    winnerDiv.style.zIndex = '2';
+    winnerDiv.style.position = 'absolute';
+    if (winner === 'X') {
+        winnerDiv.innerText = 'X WON!'
+    }
+    else {
+        winnerDiv.innerText = 'O WON!'
+    }
+    let firstRow = document.querySelector('#container #row:nth-of-type(1)');
+    firstRow.appendChild(winnerDiv);
 }
 
 /* Resets the game */
 resetBTN.addEventListener('click', function () {
-    resetTheTable();
+    resetTheTableContent();
     xScore.innerText = '0';
     oScore.innerText = '0';
 })
 
-function resetTheTable() {
+/* Removes the marked cells in the table */
+function resetTheTableContent() {
     for (let i = 0; i < 3; i++) {
         for (let j = 0; j < 3; j++) {
             cells[i][j].innerText = '';
