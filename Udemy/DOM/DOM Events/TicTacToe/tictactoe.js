@@ -43,6 +43,7 @@ for (let i = 0; i < 3; i++) {
                         else {
                             cells[i][j].innerText = 'O';
                             playerTurn = 'X';
+                            cells[i][j].style.color = '#fed050';
                         }
 
                         let winnerExist = checkForWinner();
@@ -66,16 +67,16 @@ for (let i = 0; i < 3; i++) {
                             }
                         }
                         
-                        cells[i][j].style.color = 'yellow';
                     }
                     else if (cellOnlyHaveText && !cellOccupied && evt === 'mouseenter') {
                         if (playerTurn === 'X') {
                             cells[i][j].innerText = 'x';
+                            cells[i][j].style.color = '#eb1751';
                         }
                         else {
                             cells[i][j].innerText = 'o';
+                            cells[i][j].style.color = '#ebce7f';
                         }
-                        cells[i][j].style.color = '#d0d179';
                     }
                     else if (cellOnlyHaveText && !cellOccupied && evt === 'mouseleave') {
                         cells[i][j].innerText = '';
