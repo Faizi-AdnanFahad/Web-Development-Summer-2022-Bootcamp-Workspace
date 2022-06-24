@@ -117,6 +117,9 @@ function restartTheGame() {
     restardBTN.style.zIndex = '2';
     restardBTN.style.fontFamily = "Arial, Helvetica, sans-serif";
     restardBTN.style.fontWeight = 800;
+    restardBTN.style.borderRadius = '20px';
+    restardBTN.style.boxShadow = '1px 1px 15px #ebce7f';
+    restardBTN.style.border = 'none';
 
     restardBTN.addEventListener('click', function (event) {
         /* Removes the winner banner */
@@ -145,11 +148,18 @@ function addGameStatus(winner, drawExist) {
     gameStatusDiv.style.color = 'black';
     gameStatusDiv.style.zIndex = '2';
     gameStatusDiv.style.position = 'absolute';
+    gameStatusDiv.style.fontFamily = 'Fascinate';
     if (drawExist) {
         gameStatusDiv.innerText = winner; // DRAW!
     }
     else {
         gameStatusDiv.innerText = `${winner} WON!`;
+        if (winner === 'X') {
+            gameStatusDiv.style.color = '#eb1751';
+        }
+        else {
+            gameStatusDiv.style.color = '#fed050';
+        }
     }
 
     let firstRow = document.querySelector('#container #row:nth-of-type(1)');

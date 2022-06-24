@@ -1,6 +1,6 @@
 body {
-    background: linear-gradient(45deg, #1f114a, #2a1a79);    /* background-image: url('https://images.unsplash.com/photo-1492446190781-58ac4285911d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2005&q=80'); */
-    
+    background: linear-gradient(45deg, #1f114a, #2a1a79);    
+    /* background-image: url('https://images.unsplash.com/photo-1492446190781-58ac4285911d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2005&q=80'); */
 }
 
 /* #row1 {
@@ -123,10 +123,12 @@ h1 {
     border-radius: 20px;
     font-family: Arial, Helvetica, sans-serif;
     font-weight: 800;
+    border: none;
 }
 
 button:hover {
     background-color: #fed050;
+    box-shadow: 1px 1px 15px #ebce7f;
 }
 
 .reddishColor {
