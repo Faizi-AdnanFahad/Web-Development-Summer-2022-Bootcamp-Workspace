@@ -5,7 +5,14 @@ var cells = [
 ];
 
 var winner = '';
-let drawCounter = 0;
+let drawCounter = 0; // Used for draw calcuations 
+
+/* Used for keeping track of scores */
+let xScore = document.querySelector("#scores div:first-child span");
+let oScore = document.querySelector("#scores div:last-child span");
+
+let resetBTN = document.querySelector("#resetBTN");
+
 /* Initalizing the 2-d array to the list of divs */
 for (let i = 0; i < 3; i++) {
     let currentRow = document.querySelector(`#row:nth-of-type(${i + 1})`);
@@ -14,21 +21,6 @@ for (let i = 0; i < 3; i++) {
     }
 }
 
-/* X Icon */
-
-// let c = document.querySelector('#container #row:nth-of-type(2) div:nth-of-type(2)')
-
-// let xIcon = document.createElement('img');
-// xIcon.src = 'https://cdn-icons.flaticon.com/png/512/800/premium/800878.png?token=exp=1656030949~hmac=585b3c0fe98256c82fafcb73556665f7';
-// xIcon.classList.add('imgIcon');
-
-// let oIcon = document.createElement('img');
-// oIcon.src = 'https://cdn-icons.flaticon.com/png/512/3524/premium/3524377.png?token=exp=1656031418~hmac=f3565d91565e40ff7d13ae1c6109e249';
-// oIcon.classList.add('imgIcon');
-
-let xScore = document.querySelector("#scores div:first-child span");
-let oScore = document.querySelector("#scores div:last-child span");
-let resetBTN = document.querySelector("#resetBTN");
 
 for (let i = 0; i < 3; i++) {
     for (let j = 0; j < 3; j++) {
@@ -39,7 +31,9 @@ for (let i = 0; i < 3; i++) {
                     cells[i][j].style.cursor = 'not-allowed';
                 }
                 else {
-                    let cellOnlyHaveText = cells[i][j].childNodes.length <= 1;
+                    let cellOnlyHaveText = cells[i][j].childNodes.length <= 1; // Makes sure that there does not exist a button. e.g., Specifically cell[1][1]
+                    let cellOccupied = (cells[i][j].innerText === 'X' || cells[i][j].innerText === 'O');
+                    
                     if (cellOnlyHaveText && evt === 'click') {
                         drawCounter ++;
                         if (playerTurn === 'X') {
@@ -63,17 +57,18 @@ for (let i = 0; i < 3; i++) {
                             restartTheGame();
                             addGameStatus(winner, false);
                         }
-                        
-                        let drawExist = checkForDraw(winnerExist);
-                        if (drawExist) {
-                            darkenTheBackground();
-                            restartTheGame();
-                            addGameStatus('DRAW!', true);
+                        else {
+                            let drawExist = checkForDraw(winnerExist);
+                            if (drawExist) {
+                                darkenTheBackground();
+                                restartTheGame();
+                                addGameStatus('DRAW!', true);
+                            }
                         }
-
+                        
                         cells[i][j].style.color = 'yellow';
                     }
-                    else if (cellOnlyHaveText && !(cells[i][j].innerText === 'X' || cells[i][j].innerText === 'O') && evt === 'mouseenter') {
+                    else if (cellOnlyHaveText && !cellOccupied && evt === 'mouseenter') {
                         if (playerTurn === 'X') {
                             cells[i][j].innerText = 'x';
                         }
@@ -82,7 +77,7 @@ for (let i = 0; i < 3; i++) {
                         }
                         cells[i][j].style.color = '#d0d179';
                     }
-                    else if (cellOnlyHaveText && !(cells[i][j].innerText === 'X' || cells[i][j].innerText === 'O') && evt === 'mouseleave') {
+                    else if (cellOnlyHaveText && !cellOccupied && evt === 'mouseleave') {
                         cells[i][j].innerText = '';
                     }
                 }
@@ -117,8 +112,8 @@ function restartTheGame() {
     restardBTN.style.height = '3rem';
     restardBTN.style.position = 'absolute';
     restardBTN.style.zIndex = '2';
+
     restardBTN.addEventListener('click', function (event) {
-    
         /* Removes the winner banner */
         let winnerDiv = document.querySelector('#winnerDiv');
         winnerDiv.remove();
@@ -146,7 +141,7 @@ function addGameStatus(winner, drawExist) {
     gameStatusDiv.style.zIndex = '2';
     gameStatusDiv.style.position = 'absolute';
     if (drawExist) {
-        gameStatusDiv.innerText = winner;
+        gameStatusDiv.innerText = winner; // DRAW!
     }
     else {
         gameStatusDiv.innerText = `${winner} WON!`;
@@ -155,13 +150,6 @@ function addGameStatus(winner, drawExist) {
     let firstRow = document.querySelector('#container #row:nth-of-type(1)');
     firstRow.appendChild(gameStatusDiv);
 }
-
-/* Resets the game */
-resetBTN.addEventListener('click', function () {
-    resetTheTableContent();
-    xScore.innerText = '0';
-    oScore.innerText = '0';
-})
 
 /* Removes the marked cells in the table */
 function resetTheTableContent() {
@@ -173,6 +161,13 @@ function resetTheTableContent() {
     }
     drawCounter = 0;
 }
+
+/* Resets the game */
+resetBTN.addEventListener('click', function () {
+    resetTheTableContent();
+    xScore.innerText = '0';
+    oScore.innerText = '0';
+})
 
 function checkForWinner() {
     return r1r2r3() || c1c2c3() || diagonal();
