@@ -61,8 +61,8 @@ for (let i = 0; i < 3; i++) {
                             darkenTheBackground();
                             restartTheGame();
                             addWinnerBanner();
-                            
                         }
+                        cells[i][j].style.color = 'yellow';
                     }
                     else if (cellOnlyHaveText && !(cells[i][j].innerText === 'X' || cells[i][j].innerText === 'O') && evt === 'mouseenter') {
                         if (playerTurn === 'X') {
@@ -71,6 +71,7 @@ for (let i = 0; i < 3; i++) {
                         else {
                             cells[i][j].innerText = 'o';
                         }
+                        cells[i][j].style.color = '#d0d179';
                     }
                     else if (cellOnlyHaveText && !(cells[i][j].innerText === 'X' || cells[i][j].innerText === 'O') && evt === 'mouseleave') {
                         cells[i][j].innerText = '';
