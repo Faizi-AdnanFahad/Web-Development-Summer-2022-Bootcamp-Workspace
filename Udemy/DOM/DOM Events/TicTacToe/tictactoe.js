@@ -5,7 +5,7 @@ var cells = [
 ];
 
 var winner = '';
-
+let drawCounter = 0;
 /* Initalizing the 2-d array to the list of divs */
 for (let i = 0; i < 3; i++) {
     let currentRow = document.querySelector(`#row:nth-of-type(${i + 1})`);
@@ -41,6 +41,7 @@ for (let i = 0; i < 3; i++) {
                 else {
                     let cellOnlyHaveText = cells[i][j].childNodes.length <= 1;
                     if (cellOnlyHaveText && evt === 'click') {
+                        drawCounter ++;
                         if (playerTurn === 'X') {
                             cells[i][j].innerText = 'X';
                             playerTurn = 'O';
@@ -62,6 +63,20 @@ for (let i = 0; i < 3; i++) {
                             restartTheGame();
                             addWinnerBanner();
                         }
+                        /**********************/
+                        let draw = true;
+                        for (let i = 0;!draw && i < 3; i++) {
+                            for (let j = 0;!draw && j < 3; j++) {
+                                draw = cells[i][j].innerText === 'X'
+                                    ||
+                                       cells[i][j].innerText === 'O';
+                            }
+                        }
+                        // console.log(!winnerExist && draw);
+                        let drawExist = checkForDraw(winnerExist);
+
+                        /**********************/
+
                         cells[i][j].style.color = 'yellow';
                     }
                     else if (cellOnlyHaveText && !(cells[i][j].innerText === 'X' || cells[i][j].innerText === 'O') && evt === 'mouseenter') {
@@ -80,6 +95,10 @@ for (let i = 0; i < 3; i++) {
             }, false);
         });
     }
+}
+
+function checkForDraw(winnerExist) {
+    return drawCounter === 9 && !winnerExist;
 }
 
 function darkenTheBackground() {
@@ -156,6 +175,7 @@ function resetTheTableContent() {
             cells[i][j].style.cursor = '';
         }
     }
+    drawCounter = 0;
 }
 
 function checkForWinner() {
