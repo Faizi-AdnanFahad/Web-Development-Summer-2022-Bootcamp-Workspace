@@ -68,11 +68,13 @@ resetBTN.addEventListener('click', function() {
     for (let i = 0; i < 3; i++) {
         for (let j = 0; j < 3; j++) {
             cells[i][j].innerText = '';
+            cells[i][j].style.cursor = '';
         }
     }
 
     xScore.innerText = '0';
     oScore.innerText = '0';
+
 })
 
 function checkForWinner() {
