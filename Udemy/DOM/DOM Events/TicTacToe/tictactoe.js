@@ -225,6 +225,7 @@ function diagonal() {
     return rightDiagonalCondition || leftDiagonalCondition;
 }
 
+/* Determines the winner */
 function conditionChecker(arr) {
     let xCheck = arr.every(function (element) {
         return element.innerText === 'X';
