@@ -94,15 +94,12 @@ const fakeRequest = (url) => {
         }, delay)
     })
 }
-/*==============================*/
+/*===============The result of await can be stored in a variable===============*/
 async function test() {
     let result = await fakeRequest('/www.google.com');
     console.log(result); // test() should be run in console.
+    console.log("hi"); // does not gets printed if the result gets a rejection. We can take care of that with a try-catch block as shown below.
 }
-// This is equivallent to 
-fakeRequest('google.com').then((msg) => {
-    console.log(msg);
-})
 /*==============================*/
 
 /*===============HANDLING THE REJECTION===============*/
