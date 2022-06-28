@@ -16,3 +16,17 @@ h1 {
     width: 500px;
     height: 1.5rem;
 }
+
+#divMovieInfo {
+    margin: 0 auto;
+    width: 90%;
+    height: 300px;
+    background-color: aqua;
+}
+
+#divMovieInfo img {
+    width: 30%;
+    height: inherit;
+    background-color: red;
+    z-index: 3;
+}
