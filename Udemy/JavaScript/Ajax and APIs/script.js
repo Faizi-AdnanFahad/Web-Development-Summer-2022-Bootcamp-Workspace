@@ -64,7 +64,7 @@
 
 // Setting up the header
 async function getDadJoke() {
-  
+
 
   try {
     const config = {
@@ -73,20 +73,21 @@ async function getDadJoke() {
       }
     };
     let data = await axios.get('https://icanhazdadjoke.com/', config); // returns HTML
-    //  console.log(data.data.joke);
     return data.data.joke;
   }
-  catch(e) {
+  catch (e) {
     console.log(e);
   }
 }
 
+
 let jokes = document.querySelector("#joke");
 let btn = document.querySelector("button");
-btn.addEventListener('click', function () {
+btn.addEventListener('click', async function () {
   let newLI = document.createElement('LI');
   jokes.appendChild(newLI);
-  getDadJoke().then((data) => {
-    newLI.innerText = data;
-  })
+  let dataText = await getDadJoke();
+  newLI.innerText = dataText;
 })
+
+
