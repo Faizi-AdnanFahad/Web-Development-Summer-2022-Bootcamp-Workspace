@@ -51,13 +51,42 @@
 
 /*HTTP Request using Axios*/
 
-async function makeRequest(id) {
+// async function makeRequest(id) {
+//   try {
+//     let data = await axios.get(`https://swapi.dev/api/people/${id}/`);
+//     console.log(data.data);
+//   }
+//   catch (e) {
+//     console.log(e);
+//   }
+// }
+// makeRequest(4);
+
+// Setting up the header
+async function getDadJoke() {
+  
+
   try {
-    let data = await axios.get(`https://swapi.dev/api/people/${id}/`);
-    console.log(data.data);
+    const config = {
+      headers: {
+        Accept: 'application/json'
+      }
+    };
+    let data = await axios.get('https://icanhazdadjoke.com/', config); // returns HTML
+    //  console.log(data.data.joke);
+    return data.data.joke;
   }
-  catch (e) {
+  catch(e) {
     console.log(e);
   }
 }
-makeRequest(4);
+
+let jokes = document.querySelector("#joke");
+let btn = document.querySelector("button");
+btn.addEventListener('click', function () {
+  let newLI = document.createElement('LI');
+  jokes.appendChild(newLI);
+  getDadJoke().then((data) => {
+    newLI.innerText = data;
+  })
+})
