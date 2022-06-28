@@ -76,7 +76,7 @@ async function getDadJoke() {
     return data.data.joke;
   }
   catch (e) {
-    console.log(e);
+    return "NO JOKES AVAILABLE";
   }
 }
 
