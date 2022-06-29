@@ -5,7 +5,9 @@ searchForm.addEventListener('submit', async function(event) {
     let input = searchForm.elements[0];
     let data = await searchForQuery(input);
 
-    let container = createContainer();
+    createContainer();
+
+    addImage(data.data);
 
     input.value = ''; // Clean the user entered search
 })
@@ -38,4 +40,9 @@ function createContainer() {
     let movieInfo = document.createElement('DIV');
     movieInfo.id = 'movieInfo';
     container.append(movieInfo);
+}
+
+function addImage(data) {
+    let imgElement = document.querySelector('#imgInfo img');
+    imgElement.src = data[2].show.image.medium;
 }
