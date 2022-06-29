@@ -7,7 +7,8 @@ searchForm.addEventListener('submit', async function(event) {
 
     createContainer();
 
-    addImage(data.data);
+    addImage(data.data, 2);
+    addMovieInfo(data.data, 2);
 
     input.value = ''; // Clean the user entered search
 })
@@ -40,9 +41,25 @@ function createContainer() {
     let movieInfo = document.createElement('DIV');
     movieInfo.id = 'movieInfo';
     container.append(movieInfo);
+
+    let summary = document.createElement('DIV');
+    summary.id = 'summary';
+    container.append(summary);
 }
 
-function addImage(data) {
+function addImage(data, num) {
     let imgElement = document.querySelector('#imgInfo img');
-    imgElement.src = data[2].show.image.medium;
+    imgElement.src = data[num].show.image.medium;
+    imgElement.alt = 'Image does not exist'
+}
+
+function addMovieInfo(data, num) {
+    let movieInfoElement = document.querySelector('#movieInfo');
+    let h2 = document.createElement('h2');
+    h2.innerText = data[num].show.name + " (";
+    movieInfoElement.append(h2);
+
+    let span = document.createElement('span');
+    span.innerText = data[num].show.premiered.substring(0, 4) + ")";
+    h2.append(span);
 }

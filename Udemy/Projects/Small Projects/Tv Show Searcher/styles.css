@@ -38,12 +38,20 @@ h1 {
 }
 
 #container #movieInfo {
-    width: 70%;
+    width: 36%;
     height: 300px;
     border: 1px solid yellowgreen;
     background-color: aqua;
 }
 
+#container #summary {
+    width: 34%;
+    height: 300px;
+    border: 1px solid indianred;
+    background-color: yellow;
+}
+
 #imgInfo img {
     object-fit: scale-down;
+    border-radius: 20px;
 }
