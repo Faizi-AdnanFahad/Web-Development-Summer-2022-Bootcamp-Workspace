@@ -1,18 +1,45 @@
+var submitCounter = 0;
+
 let searchForm = document.querySelector('#search');
 
-searchForm.addEventListener('submit', async function(event) {
+searchForm.addEventListener('submit', async function (event) {
     event.preventDefault(); // Don't submit to a new link
     let input = searchForm.elements[0];
     let data = await searchForQuery(input);
 
+    let mainElement = document.createElement('main');
+    document.body.appendChild(mainElement);
 
-    for (let i = 0; i < data.data.length; i ++) {
-        let container = createContainer();
-        addImage(container, data.data, i);
-        addMovieInfo(container, data.data, i);
-        addSummary(container, data.data, i);
+    if (submitCounter % 2 == 0) {
+        for (let i = 0; i < data.data.length; i++) {
+            let container = createContainer();
+            let hr = document.createElement('hr');
+            mainElement.append(hr);
+            mainElement.appendChild(container);
+
+            addImage(container, data.data, i);
+            addMovieInfo(container, data.data, i);
+            addSummary(container, data.data, i);
+        }
+        submitCounter ++;
+    }
+    else {
+        let main = document.querySelector('main');
+        main.remove();
+        for (let i = 0; i < data.data.length; i++) {
+            let container = createContainer();
+            let hr = document.createElement('hr');
+            mainElement.append(hr);
+            mainElement.appendChild(container);
+
+            addImage(container, data.data, i);
+            addMovieInfo(container, data.data, i);
+            addSummary(container, data.data, i);
+        }
+        submitCounter ++;
     }
 
+    console.log(submitCounter);
     input.value = ''; // Clean the user entered search
 })
 
@@ -30,6 +57,8 @@ function createContainer() {
     //     <div id="imgInfo"><img src="" alt=""></div>
     //     <div id="movieInfo"></div>
     // </div>
+
+
     let container = document.createElement('DIV');
     container.id = 'container';
     document.body.append(container);
@@ -40,7 +69,7 @@ function createContainer() {
 
     let img = document.createElement('IMG');
     imgInfo.append(img);
-    
+
     let movieInfo = document.createElement('DIV');
     movieInfo.id = 'movieInfo';
     container.append(movieInfo);
@@ -48,9 +77,6 @@ function createContainer() {
     let summary = document.createElement('DIV');
     summary.id = 'summary';
     container.append(summary);
-
-    let hr = document.createElement('hr');
-    document.body.append(hr);
 
     return container;
 }
@@ -82,7 +108,7 @@ function addMovieInfo(container, data, num) {
     watchAt.style.display = 'inline';
     movieInfoElement.append(watchAt);
 
-    
+
     let icon = document.createElement('img');
     icon.src = 'https://cdn-icons.flaticon.com/png/512/5554/premium/5554375.png?token=exp=1656526082~hmac=667a7ab88e386c30f3e0d0ee54ecdbea';
     icon.style.width = '50px';
