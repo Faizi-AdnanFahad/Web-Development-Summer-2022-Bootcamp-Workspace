@@ -11,31 +11,14 @@ searchForm.addEventListener('submit', async function (event) {
     document.body.appendChild(mainElement);
 
     if (submitCounter % 2 == 0) {
-        for (let i = 0; i < data.data.length; i++) {
-            let container = createContainer();
-            let hr = document.createElement('hr');
-            mainElement.append(hr);
-            mainElement.appendChild(container);
+        doTheBackgroundWork(data, mainElement);
 
-            addImage(container, data.data, i);
-            addMovieInfo(container, data.data, i);
-            addSummary(container, data.data, i);
-        }
         submitCounter ++;
     }
     else {
         let main = document.querySelector('main');
         main.remove();
-        for (let i = 0; i < data.data.length; i++) {
-            let container = createContainer();
-            let hr = document.createElement('hr');
-            mainElement.append(hr);
-            mainElement.appendChild(container);
-
-            addImage(container, data.data, i);
-            addMovieInfo(container, data.data, i);
-            addSummary(container, data.data, i);
-        }
+        doTheBackgroundWork(data, mainElement);
         submitCounter ++;
     }
 
@@ -50,6 +33,19 @@ async function searchForQuery(inputForm) {
         }
     };
     return await axios.get('https://api.tvmaze.com/search/shows?q=', config);
+}
+
+function doTheBackgroundWork(data, mainElement) {
+    for (let i = 0; i < data.data.length; i++) {
+            let container = createContainer();
+            let hr = document.createElement('hr');
+            mainElement.append(hr);
+            mainElement.appendChild(container);
+
+            addImage(container, data.data, i);
+            addMovieInfo(container, data.data, i);
+            addSummary(container, data.data, i);
+        }
 }
 
 function createContainer() {
