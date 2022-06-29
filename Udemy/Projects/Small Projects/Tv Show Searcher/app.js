@@ -84,7 +84,13 @@ function addMovieInfo(container, data, num) {
     let rating = document.createElement('h2');
     rating.innerText = 'Rating: ';
     let ratingSpan = document.createElement('ratingSpan');
-    ratingSpan.innerText = data[num].show.rating.average;
+    let ratingData = data[num].show.rating.average;
+    if (ratingData) {
+        ratingSpan.innerText = ratingData;
+    }
+    else {
+        ratingSpan.innerText = 'Not Available';
+    }
     rating.append(ratingSpan);
     movieInfoElement.append(rating);
 }
