@@ -20,7 +20,22 @@ async function searchForQuery(inputForm) {
 }
 
 function createContainer() {
+    // <div id="container">
+    //     <div id="imgInfo"><img src="" alt=""></div>
+    //     <div id="movieInfo"></div>
+    // </div>
     let container = document.createElement('DIV');
-    container.id = 'dataContainer';
+    container.id = 'container';
     document.body.append(container);
+
+    let imgInfo = document.createElement('DIV');
+    imgInfo.id = 'imgInfo';
+    container.append(imgInfo);
+
+    let img = document.createElement('IMG');
+    imgInfo.append(img);
+    
+    let movieInfo = document.createElement('DIV');
+    movieInfo.id = 'movieInfo';
+    container.append(movieInfo);
 }

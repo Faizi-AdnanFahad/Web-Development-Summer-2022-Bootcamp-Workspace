@@ -20,10 +20,23 @@ h1 {
     max-width: 760px;
 }
 
-#dataContainer {
+#container {
+    display: flex;
     margin: 0 auto;
     margin-top: 50px;
     width: 90%;
     height: 300px;
     background-color: aqua;
+}
+
+#container #imgInfo {
+    width: 30%;
+    height: 300px;
+    border: 1px solid red;
+}
+
+#container #movieInfo {
+    width: 70%;
+    height: 300px;
+    border: 1px solid green;
 }
