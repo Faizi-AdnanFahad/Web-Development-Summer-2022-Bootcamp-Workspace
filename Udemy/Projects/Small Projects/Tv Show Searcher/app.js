@@ -62,4 +62,22 @@ function addMovieInfo(data, num) {
     let span = document.createElement('span');
     span.innerText = data[num].show.premiered.substring(0, 4) + ")";
     h2.append(span);
+
+    let watchAt = document.createElement('h2');
+    watchAt.innerText = 'Watch @ ';
+    watchAt.style.display = 'inline';
+    movieInfoElement.append(watchAt);
+
+    
+    let icon = document.createElement('img');
+    icon.src = 'https://cdn-icons-png.flaticon.com/512/3159/3159461.png';
+    icon.style.width = '50px';
+    icon.style.height = '50px';
+    movieInfoElement.append(icon);
+
+    let watchLink = document.createElement('a');
+    watchLink.append(icon);
+    movieInfoElement.append(watchLink);
+    watchLink.href = data[num].show.officialSite;
+
 }
