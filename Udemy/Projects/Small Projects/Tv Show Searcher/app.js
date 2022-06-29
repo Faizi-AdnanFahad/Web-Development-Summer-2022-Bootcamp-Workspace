@@ -5,6 +5,8 @@ searchForm.addEventListener('submit', async function(event) {
     let input = searchForm.elements[0];
     let data = await searchForQuery(input);
 
+    let container = createContainer();
+
     input.value = ''; // Clean the user entered search
 })
 
@@ -15,4 +17,10 @@ async function searchForQuery(inputForm) {
         }
     };
     return await axios.get('https://api.tvmaze.com/search/shows?q=', config);
+}
+
+function createContainer() {
+    let container = document.createElement('DIV');
+    container.id = 'dataContainer';
+    document.body.append(container);
 }
