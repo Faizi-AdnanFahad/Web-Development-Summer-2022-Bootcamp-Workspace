@@ -33,25 +33,29 @@ h1 {
     display: flex;
     width: 30%;
     height: 300px;
-    border: 1px solid red;
     justify-content: center;
 }
 
 #container #movieInfo {
     width: 36%;
     height: 300px;
-    border: 1px solid yellowgreen;
     background-color: aqua;
 }
 
 #container #summary {
     width: 34%;
     height: 300px;
-    border: 1px solid indianred;
     background-color: yellow;
 }
 
 #imgInfo img {
     object-fit: scale-down;
     border-radius: 20px;
+}
+
+hr {
+    background-color: white;
+    width: 80%;
+    margin-left: 150px;
+    margin-top: 50px;
 }

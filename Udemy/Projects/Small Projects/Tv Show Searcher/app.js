@@ -46,6 +46,10 @@ function createContainer() {
     let summary = document.createElement('DIV');
     summary.id = 'summary';
     container.append(summary);
+
+    let hr = document.createElement('hr');
+    document.body.append(hr);
+
     return container;
 }
 
