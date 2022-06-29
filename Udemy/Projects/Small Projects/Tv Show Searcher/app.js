@@ -7,22 +7,28 @@ searchForm.addEventListener('submit', async function (event) {
     let input = searchForm.elements[0];
     let data = await searchForQuery(input);
 
-    let mainElement = document.createElement('main');
-    document.body.appendChild(mainElement);
+    if (data.data.length > 0) {
+        let mainElement = document.createElement('main');
+        document.body.appendChild(mainElement);
 
-    if (submitCounter % 2 == 0) {
-        doTheBackgroundWork(data, mainElement);
-
-        submitCounter ++;
+        if (submitCounter == 0) {
+            doTheBackgroundWork(data, mainElement);
+            submitCounter++;
+        }
+        else {
+            let main = document.querySelector('main');
+            main.remove();
+            doTheBackgroundWork(data, mainElement);
+            submitCounter++;
+        }
     }
     else {
-        let main = document.querySelector('main');
-        main.remove();
-        doTheBackgroundWork(data, mainElement);
-        submitCounter ++;
+        let p = document.createElement("p");
+        p.innerText = "No Movies Exist, search for something else please.";
+        p.id = 'noMoviesExist';
+        document.body.appendChild(p);
     }
 
-    console.log(submitCounter);
     input.value = ''; // Clean the user entered search
 })
 
@@ -37,15 +43,15 @@ async function searchForQuery(inputForm) {
 
 function doTheBackgroundWork(data, mainElement) {
     for (let i = 0; i < data.data.length; i++) {
-            let container = createContainer();
-            let hr = document.createElement('hr');
-            mainElement.append(hr);
-            mainElement.appendChild(container);
+        let container = createContainer();
+        let hr = document.createElement('hr');
+        mainElement.append(hr);
+        mainElement.appendChild(container);
 
-            addImage(container, data.data, i);
-            addMovieInfo(container, data.data, i);
-            addSummary(container, data.data, i);
-        }
+        addImage(container, data.data, i);
+        addMovieInfo(container, data.data, i);
+        addSummary(container, data.data, i);
+    }
 }
 
 function createContainer() {
@@ -79,7 +85,10 @@ function createContainer() {
 
 function addImage(container, data, num) {
     let imgElement = container.childNodes[0].childNodes[0];
-    imgElement.src = data[num].show.image.medium;
+    let imgSrc = data[num].show.image;
+    if (imgSrc) {
+        imgElement.src = imgSrc.medium;
+    }
     imgElement.alt = 'Image does not exist'
 }
 
