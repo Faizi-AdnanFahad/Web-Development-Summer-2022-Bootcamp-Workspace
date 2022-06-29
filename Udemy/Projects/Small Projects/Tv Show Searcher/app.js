@@ -9,6 +9,7 @@ searchForm.addEventListener('submit', async function(event) {
 
     addImage(container, data.data, 2);
     addMovieInfo(container, data.data, 2);
+    addSummary(container, data.data, 2);
 
     input.value = ''; // Clean the user entered search
 })
@@ -93,4 +94,15 @@ function addMovieInfo(container, data, num) {
     }
     rating.append(ratingSpan);
     movieInfoElement.append(rating);
+}
+
+function addSummary(container, data, num) {
+    let summaryElement = container.childNodes[2];
+    let summary = data[num].show.summary;
+    if (summary) {
+        summaryElement.innerHTML = summary;
+    }
+    else {
+        summaryElement.innerText = 'Not Available';
+    }
 }
