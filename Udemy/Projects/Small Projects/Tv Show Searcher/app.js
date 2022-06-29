@@ -5,10 +5,10 @@ searchForm.addEventListener('submit', async function(event) {
     let input = searchForm.elements[0];
     let data = await searchForQuery(input);
 
-    createContainer();
+    let container = createContainer();
 
-    addImage(data.data, 2);
-    addMovieInfo(data.data, 2);
+    addImage(container, data.data, 2);
+    addMovieInfo(container, data.data, 2);
 
     input.value = ''; // Clean the user entered search
 })
@@ -45,16 +45,17 @@ function createContainer() {
     let summary = document.createElement('DIV');
     summary.id = 'summary';
     container.append(summary);
+    return container;
 }
 
-function addImage(data, num) {
-    let imgElement = document.querySelector('#imgInfo img');
+function addImage(container, data, num) {
+    let imgElement = container.childNodes[0].childNodes[0];
     imgElement.src = data[num].show.image.medium;
     imgElement.alt = 'Image does not exist'
 }
 
-function addMovieInfo(data, num) {
-    let movieInfoElement = document.querySelector('#movieInfo');
+function addMovieInfo(container, data, num) {
+    let movieInfoElement = container.childNodes[1];
     let h2 = document.createElement('h2');
     h2.innerText = data[num].show.name + " (";
     movieInfoElement.append(h2);
@@ -80,4 +81,10 @@ function addMovieInfo(data, num) {
     movieInfoElement.append(watchLink);
     watchLink.href = data[num].show.officialSite;
 
+    let rating = document.createElement('h2');
+    rating.innerText = 'Rating: ';
+    let ratingSpan = document.createElement('ratingSpan');
+    ratingSpan.innerText = data[num].show.rating.average;
+    rating.append(ratingSpan);
+    movieInfoElement.append(rating);
 }
