@@ -5,11 +5,13 @@ searchForm.addEventListener('submit', async function(event) {
     let input = searchForm.elements[0];
     let data = await searchForQuery(input);
 
-    let container = createContainer();
 
-    addImage(container, data.data, 2);
-    addMovieInfo(container, data.data, 2);
-    addSummary(container, data.data, 2);
+    for (let i = 0; i < data.data.length; i ++) {
+        let container = createContainer();
+        addImage(container, data.data, i);
+        addMovieInfo(container, data.data, i);
+        addSummary(container, data.data, i);
+    }
 
     input.value = ''; // Clean the user entered search
 })
@@ -66,7 +68,13 @@ function addMovieInfo(container, data, num) {
     movieInfoElement.append(h2);
 
     let span = document.createElement('span');
-    span.innerText = data[num].show.premiered.substring(0, 4) + ")";
+    let yearPremiered = data[num].show.premiered;
+    if (yearPremiered) {
+        span.innerText = yearPremiered.substring(0, 4) + ")";
+    }
+    else {
+        span.innerText = 'Not Available)';
+    }
     h2.append(span);
 
     let watchAt = document.createElement('h5');
