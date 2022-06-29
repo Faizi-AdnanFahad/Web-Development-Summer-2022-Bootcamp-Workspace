@@ -69,24 +69,25 @@ function addMovieInfo(container, data, num) {
     span.innerText = data[num].show.premiered.substring(0, 4) + ")";
     h2.append(span);
 
-    let watchAt = document.createElement('h2');
+    let watchAt = document.createElement('h5');
     watchAt.innerText = 'Watch @ ';
     watchAt.style.display = 'inline';
     movieInfoElement.append(watchAt);
 
     
     let icon = document.createElement('img');
-    icon.src = 'https://cdn-icons-png.flaticon.com/512/3159/3159461.png';
+    icon.src = 'https://cdn-icons.flaticon.com/png/512/5554/premium/5554375.png?token=exp=1656526082~hmac=667a7ab88e386c30f3e0d0ee54ecdbea';
     icon.style.width = '50px';
     icon.style.height = '50px';
     movieInfoElement.append(icon);
 
     let watchLink = document.createElement('a');
+    watchLink.append(watchAt);
     watchLink.append(icon);
     movieInfoElement.append(watchLink);
     watchLink.href = data[num].show.officialSite;
 
-    let rating = document.createElement('h2');
+    let rating = document.createElement('h5');
     rating.innerText = 'Rating: ';
     let ratingSpan = document.createElement('ratingSpan');
     let ratingData = data[num].show.rating.average;
@@ -101,10 +102,13 @@ function addMovieInfo(container, data, num) {
 }
 
 function addSummary(container, data, num) {
+    let h2 = document.createElement('h2');
+    h2.innerText = 'Summary';
     let summaryElement = container.childNodes[2];
+    summaryElement.append(h2);
     let summary = data[num].show.summary;
     if (summary) {
-        summaryElement.innerHTML = summary;
+        summaryElement.innerHTML += summary;
     }
     else {
         summaryElement.innerText = 'Not Available';
