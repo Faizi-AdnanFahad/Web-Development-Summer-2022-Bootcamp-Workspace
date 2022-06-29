@@ -1,4 +1,4 @@
-var submitCounter = 0;
+var firstSearch = true;
 
 let searchForm = document.querySelector('#search');
 
@@ -7,30 +7,30 @@ searchForm.addEventListener('submit', async function (event) {
     let input = searchForm.elements[0];
     let data = await searchForQuery(input);
 
-    if (data.data.length > 0) {
-        let mainElement = document.createElement('main');
-        document.body.appendChild(mainElement);
+    let mainElement = document.createElement('main');
+    document.body.appendChild(mainElement);
 
-        if (submitCounter == 0) {
+    if (data.data.length > 0) { // data exists
+        if (firstSearch) {
             doTheBackgroundWork(data, mainElement);
-            submitCounter++;
+            firstSearch = false;
         }
         else {
             let main = document.querySelector('main');
             main.remove();
             doTheBackgroundWork(data, mainElement);
-            submitCounter++;
         }
     }
     else {
+        let main = document.querySelector('main');
+        main.remove();
         let p = document.createElement("p");
         p.innerText = "No Movies Exist, search for something else please.";
         p.id = 'noMoviesExist';
-        document.body.appendChild(p);
+        mainElement.appendChild(p);
     }
-
     input.value = ''; // Clean the user entered search
-})
+});
 
 async function searchForQuery(inputForm) {
     let config = {
@@ -59,8 +59,6 @@ function createContainer() {
     //     <div id="imgInfo"><img src="" alt=""></div>
     //     <div id="movieInfo"></div>
     // </div>
-
-
     let container = document.createElement('DIV');
     container.id = 'container';
     document.body.append(container);
