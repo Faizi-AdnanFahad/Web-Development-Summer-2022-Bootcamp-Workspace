@@ -104,8 +104,14 @@ hr {
     margin-top: 50px;
 }
 
+#movieInfo i:hover {
+    cursor: pointer;
+    background-color: rgb(79, 78, 78);
+    border-color: #060d17;
+}
+
 #castContainer {
-    /* width: 60%; */
+    width: 60%;
     /* height: 150px; */
     margin: 10px auto;
     background-color: grey;

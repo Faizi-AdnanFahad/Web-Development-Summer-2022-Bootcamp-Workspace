@@ -1,4 +1,6 @@
 var firstSearch = true;
+var castOpen = true;
+var castOpenCounter = 0;
 
 let searchForm = document.querySelector('#search');
 
@@ -51,6 +53,7 @@ async function searchForQuery(inputForm) {
 
 function addContainerCasting(castIBtn, data) {
     let id = data[0].show.id;
+
     castIBtn.addEventListener('click', async function () {
         let container = document.createElement('DIV');
         container.id = 'castContainer';
@@ -64,20 +67,32 @@ function addContainerCasting(castIBtn, data) {
         div.id = 'castList';
         container.append(div);
 
-        let casts = await axios.get(`https://api.tvmaze.com/shows/${id}/cast`);
-        let str = "";
-        for (let i = 0; i < casts.data.length; i ++) {
-            str += (i + 1) + "- " + casts.data[i].person.name;
-            str += '&nbsp;&nbsp;&nbsp;&nbsp;';
+        if (castOpen) {
+            let casts = await axios.get(`https://api.tvmaze.com/shows/${id}/cast`);
+            let str = "";
+            for (let i = 0; i < casts.data.length; i++) {
+                str += (i + 1) + "- " + casts.data[i].person.name;
+                str += '&nbsp;&nbsp;&nbsp;&nbsp;';
+            }
+    
+            div.innerText += '\n';
+            div.innerHTML += str;
+            castOpen = false;
+            castOpenCounter ++;
         }
-        
-        div.innerText += '\n';
-        div.innerHTML += str;
+        else {
+            console.log("---------")
+            container.remove();
+            h2.remove();
+            div.remove();
+            castOpen = true;
+        }
     })
 }
+    
 
 function doTheBackgroundWork(data, mainElement) {
-    for (let i = 0; i < 1; i++) {
+    for (let i = 0; i < data.data.length; i++) {
         let container = createContainer();
         let hr = document.createElement('hr');
         mainElement.append(hr);
