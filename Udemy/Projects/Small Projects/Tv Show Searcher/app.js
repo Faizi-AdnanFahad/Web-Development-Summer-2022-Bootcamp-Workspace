@@ -24,7 +24,7 @@ searchForm.addEventListener('submit', async function (event) {
         let castIBtn = document.querySelector("#movieInfo i");
 
 
-        addContainerCasting(castIBtn);
+        addContainerCasting(castIBtn, data.data);
 
     }
     else {
@@ -49,15 +49,30 @@ async function searchForQuery(inputForm) {
 }
 
 
-function addContainerCasting(castIBtn) {
-    castIBtn.addEventListener('click', function () {
+function addContainerCasting(castIBtn, data) {
+    let id = data[0].show.id;
+    castIBtn.addEventListener('click', async function () {
         let container = document.createElement('DIV');
         container.id = 'castContainer';
         document.body.append(container);
-
         let h2 = document.createElement('h2');
+        h2.id = 'castSpan';
         h2.innerText = 'Casts: ';
         container.append(h2);
+
+        let div = document.createElement('div');
+        div.id = 'castList';
+        container.append(div);
+
+        let casts = await axios.get(`https://api.tvmaze.com/shows/${id}/cast`);
+        let str = "";
+        for (let i = 0; i < casts.data.length; i ++) {
+            str += (i + 1) + "- " + casts.data[i].person.name;
+            str += '&nbsp;&nbsp;&nbsp;&nbsp;';
+        }
+        
+        div.innerText += '\n';
+        div.innerHTML += str;
     })
 }
 
