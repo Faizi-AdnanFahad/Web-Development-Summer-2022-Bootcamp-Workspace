@@ -20,6 +20,12 @@ searchForm.addEventListener('submit', async function (event) {
             main.remove();
             doTheBackgroundWork(data, mainElement);
         }
+
+        let castIBtn = document.querySelector("#movieInfo i");
+
+
+        addContainerCasting(castIBtn);
+
     }
     else {
         let main = document.querySelector('main');
@@ -32,6 +38,7 @@ searchForm.addEventListener('submit', async function (event) {
     input.value = ''; // Clean the user entered search
 });
 
+
 async function searchForQuery(inputForm) {
     let config = {
         params: {
@@ -41,8 +48,21 @@ async function searchForQuery(inputForm) {
     return await axios.get('https://api.tvmaze.com/search/shows?q=', config);
 }
 
+
+function addContainerCasting(castIBtn) {
+    castIBtn.addEventListener('click', function () {
+        let container = document.createElement('DIV');
+        container.id = 'castContainer';
+        document.body.append(container);
+
+        let h2 = document.createElement('h2');
+        h2.innerText = 'Casts: ';
+        container.append(h2);
+    })
+}
+
 function doTheBackgroundWork(data, mainElement) {
-    for (let i = 0; i < data.data.length; i++) {
+    for (let i = 0; i < 1; i++) {
         let container = createContainer();
         let hr = document.createElement('hr');
         mainElement.append(hr);
@@ -136,6 +156,10 @@ function addMovieInfo(container, data, num) {
     }
     rating.append(ratingSpan);
     movieInfoElement.append(rating);
+
+    let i = document.createElement('i');
+    i.classList.add('gg-arrow-down-r');
+    movieInfoElement.append(i);
 }
 
 function addSummary(container, data, num) {

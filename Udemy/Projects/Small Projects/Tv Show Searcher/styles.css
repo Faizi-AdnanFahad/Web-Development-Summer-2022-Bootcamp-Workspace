@@ -43,7 +43,7 @@ h1 {
     background-color: grey;
     border-right: 2px solid white;
     opacity: 0.8;
-    border-radius: 15px;
+    border-radius: 20px;
 }
 
 #movieInfo h2 {
@@ -97,4 +97,23 @@ hr {
     text-align: center;
     font-size: 2rem;
     color: red;
+}
+
+#movieInfo i {
+    margin: 0 auto;
+    margin-top: 50px;
+}
+
+#castContainer {
+    width: 60%;
+    height: 150px;
+    margin: 10px auto;
+    background-color: grey;
+    border-radius: 20px;
+    opacity: 0.8;
+}
+
+#castContainer h2 {
+    padding-left: 50px;
+    padding-top: 10px;
 }
