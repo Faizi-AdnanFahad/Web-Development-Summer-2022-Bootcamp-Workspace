@@ -42,6 +42,7 @@ searchForm.addEventListener('submit', async function (event) {
 
 
 async function searchForQuery(inputForm) {
+    // Takes the input from the user as a q param and sends an API get request accordingly.
     let config = {
         params: {
             q: inputForm.value,
