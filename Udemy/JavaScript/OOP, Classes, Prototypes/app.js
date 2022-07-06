@@ -20,9 +20,8 @@ Array.prototype.shout = function() {
 }
 
 a = [1, 2].shout();
-console.log(a) // OR console.log([1, 2].shout())
+// console.log(a) // OR console.log([1, 2].shout())
 /*======================================================================================================================*/
-
 // Factory Functions 
 
 //This functions makes and returns an object every time it is called.
@@ -54,3 +53,14 @@ black.rgb(); //"rgb(0, 0, 0)"
 black.hex(); //"#0000s00"
 
 /*======================================================================================================================*/
+// Constructor
+
+function Color(r, g, b) {
+    this.r = r;
+    this.g = g;
+    this.b = b; 
+    // returns this
+}
+
+let c = new Color(1, 2, 4);
+console.log(c);
